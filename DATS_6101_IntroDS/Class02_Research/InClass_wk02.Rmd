@@ -1,0 +1,53 @@
+---
+title: "R - In class assignment Wk #2"
+author: "Your Name"
+date: "Sept, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r basicfcn, include=F}
+# Knit does not work with install.packages functions. Any install.packages statements in the RMD file needs to be commented out before knitting. 
+# And if the RMD is sent to another person/computer that requires installing the package, the user can remove the commenting and install the package.
+# Here, we use another option by introducting this convenient function, we named it loadPkg(), which uses install.packages() and require(). 
+# The function require() is similar to library(), except it returns a TRUE/FALSE value.
+# You can add quietly=T option to the require() function
+loadPkg = function(x) { if (!require(x,character.only=T, quietly =T)) { install.packages(x,dep=T,repos="http://cran.us.r-project.org"); if(!require(x,character.only=T)) stop("Package not found") } }
+```
+
+#### Q1. Read in the file with all the baseball players height, weight and age info (BaseballHeightWeight.csv) as a dataframe and save it as baseball. Then display the structure of the dataframe.
+
+```{r Q1, include=F}
+
+```
+
+#### Q2. print out the first 5 and the last 3 rows of the dataframe
+
+#### Q3. Change the headers/column names from Weight.pounds. to weight, from Height.inches. to height, and Age to age.
+
+#### Q4. Print out the first two lines again to see the new column names.
+
+#### Q5. Find the statistics (summary) of the heights, weights, and ages of the players. Using complete sentences, give the reader these summary.
+
+#### Q6. You should find an issue with the weight data with an NA value. Use the subset( ) function, select that data point (save as shyboy) and find out who the shy boy was.
+
+#### Q7. Remove shyboy from baseball, and then show the number of observations of the cleaned up dataframe baseball.
+
+#### Q8. Make a quick boxplot of the weight of the players. Use the title( ) function immediately to add a title to the chart. (Try color #0000FF for blue.)
+
+#### Q9. Make a histogram of the weight of the players. Try color 'green' this time. The function understands the word 'green' just fine. Give it a better title than the default. Does the distribution looks normal?
+
+#### Q10. Use ggplot, make a plot with weights vs heights of the players, color by Teams. Give it an appropriate title.
+
+#### Q11. Make a plot with weights vs heights of the players, color by age
+
+#### Q12. Obtain a subset of the data with only Team Washington. Using complete sentences, give the number of players in Team Washington.
+
+#### Q13. Obtain another subset with Team Washington and only players older than 28. How many are there in this veteran group?
+
+#### Q14. On the syllabus, next week we have our guest speaker Megan Potterbusch. What are the three links on the syllabus for her talk? Copy and paste them here.
+
+Put in your own answer here.

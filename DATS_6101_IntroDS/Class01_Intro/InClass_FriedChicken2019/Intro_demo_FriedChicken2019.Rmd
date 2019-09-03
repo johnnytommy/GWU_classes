@@ -1,0 +1,249 @@
+---
+title: "Fried Chicken"
+author: "Edwin Lo, George Washington University"
+date: "8/25/2019"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 4
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r basicfcn, include=F}
+# use this function to conveniently load libraries and work smoothly with knitting
+# can add quietly=T option to the require() function
+# note that using this function requires quotes around the package name, as you would when installing packages.
+loadPkg = function(x) { if (!require(x,character.only=T, quietly =T)) { install.packages(x,dep=T,repos="http://cran.us.r-project.org"); if(!require(x,character.only=T)) stop("Package not found") } }
+# unload/detact package when done using it
+# detach_package = function(pkg, character.only = FALSE) { if(!character.only) { pkg <- deparse(substitute(pkg)) } search_item <- paste("package", pkg, sep = ":") while(search_item %in% search()) { detach(search_item, unload = TRUE, character.only = TRUE) } }
+```
+
+
+# Fried Chicken Pricing
+## 1. The beginning
+
+For the record, I became a pescetarian (vegetarian + seafood) for some years, but I get tempted sometimes to sin. 
+At a [yelp-highly-rated](https://www.yelp.com) chicken place this summer, 
+I was waiting for my order, which took **forever** (exaggerated). 
+Without any other better things to do, I re-studied the menu there, trying to understand the pricing structure. See photo:  
+![image](DataAnalysis_FriedChicken.jpg) 
+
+So, I was wondering to myself tons of questions: how can I get the best deal? What is the cost per wing, and cost per drum? Does the restaurant use a formula to determine the pricing? What if I add a sin-ful parameter as a penalty term, how much should I order next time to minimize my sin (Root-Mean-Squared-Sinfulness)?
+
+Dang! I am **cursed**. Shouldn't have come here, I thought...  
+
+You can see the set prices clearly. We will need to re-format our data, and we can practice our Markdown skill at the same time to tabulate them here:    
+
+Wings | Drums | Price   
+-----|-------|-----------  
+ 5   |   0   |  6.69   
+10   |   0   | 12.99   
+15   |   0   | 17.99   
+20   |   0   | 23.99   
+40   |   0   | 45.99   
+ 0   |   3   |  6.69   
+ 0   |   5   | 10.99  
+ 0   |  10   | 19.99   
+ 0   |  15   | 29.99   
+ 3   |   2   |  7.99   
+ 7   |   4   | 16.99   
+12   |   6   | 27.99   
+20   |   9   | 43.99   
+  
+
+Let us now enter these into a dataframe in R. I will echo out the codes, but in general, it's better not to unless you have something to show the audience in your codes.
+
+
+```{r init, echo = T}
+# fried-chicken-price
+fcp <- data.frame(wing=c(NA,10,15,20,40,0,0,0,0,3,7,12,20), drum=c(0,0,0,0,0,3,5,10,15,2,4,6,9), price=c(6.69,12.99,17.99,23.99,45.99,6.69,10.99,19.99,29.99,7.99,16.99,27.99,43.99) )
+```
+
+So there are `r length(fcp$wing)` data points in our dataset. (Notice the use of inline R codes here.)
+
+## 2. Exploratory Data Analysis (EDA)
+There are a bit of things we typically look at for EDA.
+
+1. Basic statistics
+    + mean, s.d., median, range (four spaces at the start of line for proper sub-list indentation)
+2. Simple correlations and tests
+    + correlation matrix if applicable
+    + z-test, t-test, anova test if applicable
+    + chi-squared test if applicable
+3. Normality
+    + QQ-plot
+    + boxplot
+    + histogram 
+    + Shapiro-Wilk test
+    + ...
+
+### 2.1 Basic statistics
+```{r EDA_basicstats, echo=T}
+str(fcp)
+summary(fcp)
+```
+
+Upon inspection, we can see immediately there is a "NA" entry for wing. That's a mistake. Have an action plan to fix it. 
+After we fix it, re-run the EDA.
+
+```{r EDA_rerun, echo=T}
+fcp[1,1]=5  # equal sign "=" and assignment operator "<-" are interchangeable in R
+str(fcp)
+summary(fcp)
+```
+
+### 2.1 Tests (Correlation, ANOVA, ...)
+Since the features/variables are all numerical (quantitative), it makes most sense to check their linear correlations.
+
+```{r corr, echo=T, message=F}
+loadPkg("corrplot")
+corrmatrix = cor(fcp)  # more detailed pair-wise correlation test can be obtained from cor.test(fcp$wing,fcp$price) etc
+corrplot.mixed(corrmatrix, 
+               title="Correlation Matrix for Chicken price",
+               mar=c(0,0,1,0) # fixes the position of title
+               )
+```
+
+It is good to see that price has a decent correlation with both wing and drum, with wing seems to have a higher correlation. It is also great that drum and wing do not have too strong a correlation between them. Imagine if each drum I buy, I always will be thrown with 2 dog bones, I will have a hard time knowing if I am really paying for the drum or the dog bones. This is called a problem of collinearity. (We'll check with VIF.)
+
+### Normality check/test
+It is usually best if all the variables (numerical ones) are normally distributed. This usually does not happen, but we would still like to know overall the distribution is bell-shaped, and not too awkward. 
+
+#### 2.3.1 QQ-plot
+We can first check the QQ-plots for each variable by itself. A straight line means normal distribution.
+```{r normality_qqplot, echo=T}
+qqnorm(fcp$price, main = "price Q-Q Plot", ylab="Price Quantiles ($)") 
+qqline(fcp$price)
+qqnorm(fcp$wing, main = "wing Q-Q Plot", ylab="Wing-count Quantiles") 
+qqline(fcp$wing)
+qqnorm(fcp$drum, main = "drum Q-Q Plot", ylab="Drum-count Quantiles") 
+qqline(fcp$drum)
+```
+
+Not too well of straight line fits, but with only `r length(fcp$wing)` data points, it's probably okay.
+
+#### 2.3.2 Boxplot
+Next we can check the boxplots for a rough visual.
+```{r normality_boxplot, echo=T}
+boxplot(fcp, col=c("red","blue","green"), ylab="count or price($)", title="Boxplots for the three variables")
+axis(side = 4)
+```
+
+Same conclusion: they do not look like normal, but we'll take it.
+
+#### Histogram
+Now histograms:
+```{r normality_histogram, echo=T}
+barcolors = c("green", "violet", "orange", "blue", "pink", "red", "yellow", "cyan")
+hist(fcp$price, main = "Histogram for Price distribution", xlab="Price ($)", col=barcolors)
+hist(fcp$wing, main = "Histogram for Wing-count distribution", xlab="Wing Count", col=barcolors)
+hist(fcp$drum, main = "Histogram for Drum-count distribution", xlab="Drum Count", col=barcolors)
+```
+
+#### Shapiro-Wilk test
+And finally, using shapiro-wilk test:
+```{r normality_shapiro_wilk, echo=T}
+shapiro.test(fcp$price)
+shapiro.test(fcp$wing)
+shapiro.test(fcp$drum)
+```
+We'll learn to interpret these soon.
+
+
+## Linear Model
+
+Now if those passed the smell test, we can try build some models. Linear model is first to come to mind. We will model the price with wing and drum as the two independent variables (also called features).
+
+```{r linear_model, echo=T}
+chicklm = lm(price ~ ., data=fcp)
+summary(chicklm)
+```
+
+As we can see, the R$^2$ (using $\LaTeX$ formatting here) value of the linear model is `r format(summary(chicklm)$r.squared, digits=4)`, which shows the prices are set with rather strict per-piece-structure. 
+
+If we use the (default 95%) confidence intervals of the coefficients as shown here:
+
+```{r confint.lm, echo=T}
+coeffconfint = confint.lm(chicklm) 
+# or just 
+# confint(chicklm)
+coeffconfint
+```
+
+### Findings
+We find that:
+
+1. Each piece of wing cost about \$`r format(coeffconfint[2,1], digits=3)` to \$`r format(coeffconfint[2,2], digits=3)`
+2. Each piece of drum stick cost about \$`r format(coeffconfint[3,1], digits=3)` to \$`r format(coeffconfint[3,2], digits=3)`
+3. The intercept of about \$`r format(coeffconfint[1,1], digits=3)` to \$`r format(coeffconfint[1,2], digits=3)`, or average of \$`r format(chicklm$coefficients[1], digits=2)` probably represent the base per-order or box/bag charge.
+
+Check:   
+We should always check for multi-collinearity in linear models. 
+```{r linearmodel_vif}
+loadPkg("faraway") # faraway library is one of them has a vif function
+vif(chicklm)
+```
+With vif values less than 5, we can safely conclude there is not much collinearity concerns in the dataset. 
+
+### 3D plot
+Visual is always king.
+
+```{r 3dscatter2, echo=T}
+loadPkg("plot3D")
+# reference from http://www.sthda.com/english/wiki/impressive-package-for-3d-and-4d-graph-r-software-and-data-visualization
+# x, y, z variables
+x <- fcp$wing
+y <- fcp$drum
+z <- fcp$price
+# Compute the linear regression (z = ax + by + d)
+# chicklm <- lm(z ~ x + y)
+# predict values on regular xy grid
+grid.lines = 20
+x.pred <- seq(min(x), max(x), length.out = grid.lines)
+y.pred <- seq(min(y), max(y), length.out = grid.lines)
+xy <- expand.grid( wing = x.pred, drum =y.pred)
+z.pred <- matrix(predict.lm(chicklm, newdata = xy), nrow = grid.lines, ncol = grid.lines)
+# fitted points for droplines to surface
+fitpoints <- predict.lm(chicklm)
+# scatter plot with regression plane
+scatter3D(x, y, z, pch = 18, cex = 2, theta = 5, phi = 20, ticktype = "detailed", xlab = "wing", ylab = "drum", zlab = "price",  surf = list(x = x.pred, y = y.pred, z = z.pred, facets = NA, fit = fitpoints), main = "Chicken Price Analysis")
+
+```
+
+# Conclusion
+So what is the best deal???
+
+Let me compare the predicted values from the model with the actual values, or look at the residuals.
+```{r residual, echo=T}
+fcp$fitval = chicklm$fitted.values
+fcp$residuals = chicklm$residuals
+fcp
+```
+
+Ah, the residual is most negative with the 40-wing combo at -\$1.31. That saves me a can of soda. I should go for that and kill myself. (Another reasonable person could argue we should inspect the percentage savings - residual/predicted - as the indicator of best savings.)
+
+But if I am wiser, and insist on having a one-person portion: 
+
+1. 5-piece wing is at +\$0.10 (paying a dime too much!) - Not good. 
+1. 3-piece drum is at -\$0.12, saving a dozen pennies, sounds good.
+1. The 3-wing-2-drum deal (at -\$0.30) is the best value for me! 
+
+**Case closed. Mic dropped.**
+
+Oh wait... need to include the sin penalty...
+
+And the wings there were really really good. Totally worth the wait.
+
+# Reference (APA Style preferred)
+
+1. Yelp
+1. Google
+1. My wallet
