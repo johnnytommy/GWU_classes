@@ -161,7 +161,7 @@ def printGradeRecord(record):
   docstring
   """
   # use a single print() statement to print out the info as here
-  # 2018 spring - IntroDS (3 credits) A-  Grade points: 11.1
+  # 2018 spring - IntroDS (3 credits) A-  Grade points: 11.1    (or 11.100000000000001, I don't care at this point)
 
   return # or return None
   
@@ -193,7 +193,7 @@ def gpa(records):
 # gpa(my_grades)
 
 # Q8: write a function (with arguement of records) to print out the complete record and the gpa at the end
-# 2018 spring - IntroDS (3 credits) A-  Grade points: 11.1
+# 2018 spring - IntroDS (3 credits) A-  Grade points: 11.1    (or 11.100000000000001, I don't care at this point)
 # 2018 fall - IntroDataMining (4 credits) B  Grade points: 12
 # ........  three more lines
 # Cumulative GPA: ?????
