@@ -61,8 +61,7 @@ alist[-2:-4]
 # Now try tuple, set, and dictionary
 # Put some notes for yourself
 # comment out the illegal ones so that you can run your entire file gracefully
-atuple[1:4]
-aset[1:4]
+
 
 
 # conditional
@@ -70,17 +69,15 @@ aset[1:4]
 income = 60000
 if income >100000 :
   print("rich")
-
 # if else:
 if income >100000 :
   print("rich")
 else :
   print("not rich")
-
 # if elif elif .... :
 if income >200000 :
   print("super rich")
-if income > 100000 :
+elif income > 100000 :
   print("rich")
 elif income > 40000 :
   print("not bad")
@@ -204,3 +201,142 @@ hanoitowers = []
 hanoitowers.append( { "id":0, "name":'A', "stack":[1,2,3] } )
 hanoitowers.append( { "id":1, "name":'B', "stack":[] } )
 hanoitowers.append( { "id":2, "name":'C', "stack":[] } )
+
+def hanoitowersdisp(): # display blocks on each hanoitower after each move
+  global hanoitowers
+  print("Config: ", end =" ")
+  for t in hanoitowers:
+    print(str(t['name'])+": "+ str(t['stack'])+" ", end =" ")
+  print() # linebreak
+
+def mvhanoitowers1(n, fromt=0, tot=1):
+  """ 
+  Moving stacks of blocks from one tower to another, showing the detail steps
+  :param int n: the number of levels to move. The first time function call should have n = len of stack of fromTower
+  :param int fromt: the id of the fromTower 
+  :param int tot: the id of the toTower 
+  :return: None
+  """ 
+  global hanoitowers
+  dummyt = 3-fromt-tot
+  
+  if n == 1 : # only 1 level to move, I know how to do it, so let's do it
+    print("Move disk 1 from tower",hanoitowers[fromt]['name'],"to tower",hanoitowers[tot]['name'])
+    return  # return None
+  else : # or don't use else here, would be the same
+    mvhanoitowers1(n-1, fromt, dummyt) 
+    # the actual move
+    print("Move disk",n,"from tower",hanoitowers[fromt]['name'],"to tower",hanoitowers[tot]['name'])
+    mvhanoitowers1(n-1, dummyt, tot) 
+
+def mvhanoitowers(n, fromt=0, tot=1):
+  """ 
+  Moving stacks of blocks from one tower to another, showing the detail steps
+  :param int n: the number of levels to move. The first time functino call should have n = len of stack of fromTower
+  :param int fromt: the id of the fromTower 
+  :param int tot: the id of the toTower 
+  :return: None
+  """ 
+  global hanoitowers
+  
+  dummyt = 3-fromt-tot
+  
+  if n == 1 : # only 1 level to move, I know how to do it. Let's do it
+    print("Move disk 1 from tower",hanoitowers[fromt]['name'],"to tower",hanoitowers[tot]['name'])
+    hanoitowers[tot]['stack'].insert(0,hanoitowers[fromt]['stack'].pop(0))
+    hanoitowersdisp()
+    return  # return None
+  else : # or don't use else here, would be the same
+    mvhanoitowers(n-1, fromt, dummyt) 
+    
+    # the actual move
+    print("Move disk",n,"from tower",hanoitowers[fromt]['name'],"to tower",hanoitowers[tot]['name'])
+    hanoitowers[tot]['stack'].insert(0,hanoitowers[fromt]['stack'].pop(0))
+    hanoitowersdisp()
+
+    mvhanoitowers(n-1, dummyt, tot) 
+
+def movetowers(n, fromt=0, tot=1) :
+  """
+  Moving stacks of blocks from one tower to another, showing the detail steps
+  :param int n: the number of levels to move. 
+  :param int fromt: the id of the fromTower 
+  :param int tot: the id of the toTower 
+  :return: None
+  """
+  # build the tower shell
+  towers = [ { "id":0,"name":'A',"stack":[] } , { "id":1,"name":'B',"stack":[] } , { "id":2,"name":'C',"stack":[] } ]
+  for i,t in enumerate(towers) :
+    t['stack'] = list(range(1,n+1)) if i==fromt else []
+    # if i==fromt :
+    #   t['stack']=list(range(1,n+1))
+    # else :
+    #   t['stack']=[]
+
+  # check input n
+  n = 2 if n<1 else 50 if n>50 else math.floor(n)
+  # if n<1 :
+  #   n=2
+  # elif n>50 :
+  #   n=50
+  # else :
+  #   n=math.floor(n)
+  
+  # check input fromt (from tower id) should be 0,1, or 2
+  fromt = 0 if fromt<0 else 2 if fromt >2 else math.floor(fromt)
+  # if fromt < 0 :
+  #   fromt = 0
+  # elif fromt > 2 :
+  #   fromt = 2
+  # else :
+  #   fromt = math.floor(fromt)
+  
+  # check input tot (to tower id) should be 0,1, or 2, AND not equal to fromt
+  tot = 0 if tot<0 else 2 if tot>2 else math.floor(tot)
+  # if tot < 0 :
+  #   tot = 0
+  # elif tot > 2 :
+  #   tot = 2
+  # else :
+  #   tot = math.floor(tot)
+
+  # make sure fromt != toto
+  if tot == fromt :
+    tot = (fromt+1)%3  # use of modular algebra (%-remainder) simplifies a lot of codes
+  # tot = ((fromt+1)%3) if tot == fromt else tot
+    
+  print("At the begining:")
+  localtowersdisp(towers)
+      
+  mvt(towers, n, fromt, tot)
+  return
+  
+def mvt( towers, n, fromt=0, tot=1 ):
+  dummyt = 3-fromt-tot
+  
+  if n == 1 : # only 1 level to move, I know how to do it. Let's do it
+    print("Move disk 1 from tower",towers[fromt]['name'],"to tower",towers[tot]['name'])
+    towers[tot]['stack'].insert(0,towers[fromt]['stack'].pop(0))
+    localtowersdisp(towers) # display the config after each move
+    return  # return None
+  else : # or don't use else here, would be the same
+    mvt(towers, n-1, fromt, dummyt) 
+    
+    # the actual move
+    print("Move disk",n,"from tower",towers[fromt]['name'],"to tower",towers[tot]['name'])
+    towers[tot]['stack'].insert(0,towers[fromt]['stack'].pop(0))
+    localtowersdisp(towers) # display the config after each move
+
+    mvt(towers, n-1, dummyt, tot) 
+
+def localtowersdisp(towers): 
+  """
+  display blocks on each tower
+  :param towers: the towers, a list of tower (dictionary)
+  """
+  print("Config: ", end =" ")
+  for t in towers:
+    print(str(t['name'])+": "+ str(t['stack'])+" ", end =" ")
+    # print(t['name'], ":", t['stack'], end = " ")
+  print() # linebreak
+
