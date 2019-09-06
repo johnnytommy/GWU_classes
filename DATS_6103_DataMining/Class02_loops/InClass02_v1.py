@@ -80,7 +80,7 @@ else :
 # if elif elif .... :
 if income >200000 :
   print("super rich")
-if income > 100000 :
+elif income > 100000 :
   print("rich")
 elif income > 40000 :
   print("not bad")
@@ -111,8 +111,13 @@ for val in { 4,'2',("a",5),'end' } :
   print(val, type(val))
 # for val in dictionary :
 for key in { "k0":4, "k8":'2', "k1":("a",5), "k5":'end' } :
-  print(val, type(key))
-  
+  print(key, type(key))
+
+thedictionary = { "k0":4, "k8":'2', "k1":("a",5), "k5":'end' }    
+for key in thedictionary :
+  print("key: ",key, type(key))
+  print("val: ", thedictionary[key], type(thedictionary[key]))
+    
 # for val in string :
 for char in 'GW Rocks' :
   print(char, type(char))
@@ -135,7 +140,7 @@ dirpath = os.getcwd()
 print("current directory is : " + dirpath)
 foldername = os.path.basename(dirpath)
 print("Directory name is : " + foldername)
-fh = open('GWU_classes/DATS_6103_DataMining/Class02_Functions/presidents.txt') # fh stands for file handle
+fh = open('/Users/edwinlo/GDrive_GWU/github_elo/GWU_classes_p/DATS_6103_DataMining/Class02_Functions/presidents.txt') # fh stands for file handle
 for k in fh.readlines():
   print(type(k), ' ' ,k,  end='')
 # notice that fh will be empty at the end of the loop. Will need to readlines again if you need it
@@ -149,6 +154,7 @@ def my_add(a=0, b=0):
   return my_sum
   # return 
 
+bnow = my_add(5,8)
 
 def my_times(a=1, b=1):
   """ 
