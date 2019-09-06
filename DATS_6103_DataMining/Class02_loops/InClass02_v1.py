@@ -129,9 +129,22 @@ for index, val in enumerate(thething) :
 
 # Try tuple, set, and dictionary
 thething = { 4,'2',("a",5),'end' }
-
+thething = { "k0":4, "k8":'2', "k1":("a",5), "k5":'end' }
+# re-run the for loop above -> error
 # what happened to set and dictionary? 
 # Remember that set is un-ordered, and dictionary uses keys, not index. They cannot be enumerated.
+
+# for dictionary, you do not need to enumerate to get key, value pair
+# either of these works
+thething = { "k0":4, "k8":'2', "k1":("a",5), "k5":'end' }
+for key in thething :
+  print("key:", key, "value:", thething[key], "type of value", type(thething[key]))
+
+# or try this
+thething.items() # creates a object type of dict_items, which can be looped thru as key/value pairs   
+for key, val in thething.items() :
+  print("key:", key, "value:", val, "type of value", type(val))
+
 
 
 # external file
@@ -140,7 +153,7 @@ dirpath = os.getcwd()
 print("current directory is : " + dirpath)
 foldername = os.path.basename(dirpath)
 print("Directory name is : " + foldername)
-fh = open('/Users/edwinlo/GDrive_GWU/github_elo/GWU_classes_p/DATS_6103_DataMining/Class02_Functions/presidents.txt') # fh stands for file handle
+fh = open('GWU_classes/DATS_6103_DataMining/Class02_loops/presidents.txt') # fh stands for file handle
 for k in fh.readlines():
   print(type(k), ' ' ,k,  end='')
 # notice that fh will be empty at the end of the loop. Will need to readlines again if you need it
