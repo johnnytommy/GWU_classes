@@ -129,8 +129,10 @@ class Stock:
 
 #%%
 import os
-dirpath = os.getcwd() # print("current directory is : " + dirpath)
-filepath = dirpath+'/GWU_classes/DATS_6103_DataMining/Class03_classes/AAPL_20140912_20190912_daily_eod_vol.csv' # lastdate is 9/12/19, firstdate is 9/12/14, 
+
+# dirpath = os.getcwd() # print("current directory is : " + dirpath)
+# filepath = dirpath+'/GWU_classes_p/DATS_6103_DataMining/Class03_classes/AAPL_20140912_20190912_daily_eod_vol.csv' # lastdate is 9/12/19, firstdate is 9/12/14, 
+filepath = os.path.join( os.getcwd(), 'GWU_classes/DATS_6103_DataMining/Class03_classes/AAPL_20140912_20190912_daily_eod_vol.csv')
 
 aapl = Stock('AAPL','Apple Inc','9/12/14','9/12/19',filepath)
 #  ######   QUESTION 6    ######   QUESTION 6    ######   QUESTION 6    ######   QUESTION 6    ######  
