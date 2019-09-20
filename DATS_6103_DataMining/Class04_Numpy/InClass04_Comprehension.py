@@ -11,14 +11,14 @@
 
 #%%
 # list comprehension examples
-list = [ 1,4,0,2,3]
-listComp = [ 2*n+1 for n in list ]
+alist = [ 1,4,0,2,3]
+listComp = [ 2*n+1 for n in alist ]
 print(listComp)
 # result: [3, 9, 1, 5, 7]
 
 # same as 
 listComp = []
-for n in list:
+for n in alist:
   listComp.append(2*n+1)
 print(listComp)
 
@@ -75,13 +75,13 @@ print(lengthofwords)
 #%%
 # generator 
 # review on list comprehension
-list = [ 1,4,0,2,3 ]
-listComp = [ 2*n+1 for n in list ]
+alist = [ 1,4,0,2,3 ]
+listComp = [ 2*n+1 for n in alist ]
 print(listComp) # this is a list object
 print(type(listComp))
 
 # for generator, use ( ) instead of [ ]
-listGen = ( 2*n+1 for n in list )
+listGen = ( 2*n+1 for n in alist )
 print(listGen) # this is a generator object
 print(type(listGen))
 

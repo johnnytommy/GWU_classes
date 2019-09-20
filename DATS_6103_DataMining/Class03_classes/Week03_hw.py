@@ -52,6 +52,7 @@ class Stock:
     # or if we want to, equals to (eod[0]-eod[1]) - (eod[1]-eod[2]) = eod[0] - 2*eod[1] + eod[2]
     self.import_history(init_filepath)
     self.compute_delta1_list()
+    self.compute_delta2_list() # NEW_NEW_NEW (forgot to include this before, although it does not affect the results)
   
   def import_history(self, filepath):
     """
@@ -101,6 +102,12 @@ class Stock:
     add a new data point at the beginning of lists
     """
     #  ######   QUESTION 4    ######   QUESTION 4    ######   QUESTION 4    ######   QUESTION 4    ######  
+    # NEW_NEW_NEW (After initializing the stock with the historical price info, 
+    # we will need to perform daily updates on the price. This method is to be performed 
+    # daily (cron-job for example) to add the day price to the head of the price_eod list. 
+    # In the process, we will also need to insert the corresponding delta1 and delta2 values 
+    # to the head of those lists too.)
+    #
     # Fill in the codes here 
     #
     # insert new price data to price_eod
@@ -118,8 +125,8 @@ class Stock:
     #  ######   QUESTION 5    ######   QUESTION 5    ######   QUESTION 5    ######   QUESTION 5    ######  
     # Fill in the codes here 
     #
-    change = 0 # fix this
-    percent = 0 # fix this
+    change = 0 # change to the correct calculation
+    percent = 0 # change to the correct calculation
     #
     #  ######  END QUESTION 5 ######  END QUESTION 5 ######  END QUESTION 5 ######  END QUESTION 5 ######  
     print(self.symbol,": Percent change in",n,"days is {0:.2f}".format(percent))
@@ -132,8 +139,8 @@ import os
 
 # dirpath = os.getcwd() # print("current directory is : " + dirpath)
 # filepath = dirpath+'/GWU_classes_p/DATS_6103_DataMining/Class03_classes/AAPL_20140912_20190912_daily_eod_vol.csv' # lastdate is 9/12/19, firstdate is 9/12/14, 
+# NEW_NEW_NEW (this should have gap the difference between mac/pc/platform issues how folders recorded, backslash/forward-slash/etc)
 filepath = os.path.join( os.getcwd(), 'GWU_classes/DATS_6103_DataMining/Class03_classes/AAPL_20140912_20190912_daily_eod_vol.csv')
-
 aapl = Stock('AAPL','Apple Inc','9/12/14','9/12/19',filepath)
 #  ######   QUESTION 6    ######   QUESTION 6    ######   QUESTION 6    ######   QUESTION 6    ######  
 #
@@ -165,7 +172,7 @@ class ETF:
   
   def add_stock(self, stock):
     """
-    add a stock (Stock class) to the list self.stocks
+    add a stock (Stock class) to the list/dict self.stocks
     :param stock: a Stock class instance
     """
     #  ######   QUESTION 7    ######   QUESTION 7    ######   QUESTION 7    ######   QUESTION 7    ######  
@@ -174,6 +181,12 @@ class ETF:
     # if the stock given, say aapl, where the symbol aapl.symbol is not yet in the self.stocks dictionary, 
     # then insert the pair  aapl.symbol : aapl  into self.stocks dictionary
     # otherwise, no need to insert
+    # 
+    # NEW_NEW_NEW eventually as you'll see, the add_stock method will be called like this: 
+    # largeCapTech.add_stock(aapl) 
+    # since aapl already exists, and has all the info we need. You will therefore need 
+    # to use the stock symbol as the key to save it in the self.stocks dictionary 
+    # so that the dictionary will then have { "AAPL": aapl } in there.
     #
     #  ######  END QUESTION 7 ######  END QUESTION 7 ######  END QUESTION 7 ######  END QUESTION 7 ######  
  
@@ -184,12 +197,12 @@ class ETF:
   
   def del_stock(self, stocksymbol):
     """
-    remove a stock (Stock class) from the list self.stocks
+    remove a stock (Stock class) from the list/dict self.stocks
     """
     #  ######   QUESTION 8    ######   QUESTION 8    ######   QUESTION 8    ######   QUESTION 8    ######  
     # Fill in the codes here 
     #
-    # if the stocksymbol is in self.stocks, the remove it. 
+    # if the stocksymbol is in self.stocks, then remove it. 
     # print out some informative line in the process whether it is successful or not
     #
     #  ######  END QUESTION 8 ######  END QUESTION 8 ######  END QUESTION 8 ######  END QUESTION 8 ######      
@@ -199,6 +212,7 @@ class ETF:
     """
     with daily price update from the stock stocks, need to update the etf index value as well
     """
+    # NEW_NEW_NEW (nothing to do here. Just a placeholder for future projects)
     # to-be-implemented: 
     # update index_eod
     # update index_delta1
@@ -209,6 +223,7 @@ class ETF:
     """
     with new stock added or removed, it will be needed to update the eod_index values and the derivatives. 
     """
+    # NEW_NEW_NEW (nothing to do here. Just a placeholder for future projects)
     # to-be-implemented: 
     # update index_eod
     # update index_delta1
@@ -222,7 +237,7 @@ print(len(largeCapTech.stocks))
 
 #  ######   QUESTION 9    ######   QUESTION 9    ######   QUESTION 9    ######   QUESTION 9    ######  
 #
-# continue to add msft and aapl to the etf 
+# continue to add msft and aapl to the largeCapTech ETF 
 # check the length at the end to make sure it is 3
 #
 #  ######  END QUESTION 9 ######  END QUESTION 9 ######  END QUESTION 9 ######  END QUESTION 9 ######  
@@ -230,10 +245,11 @@ print(len(largeCapTech.stocks))
 #%%
 #  ######   QUESTION 10    ######   QUESTION 10    ######   QUESTION 10    ######   QUESTION 10    ######  
 #
-# Which stock (out of the three) perform best in the last (i) 50 days, (ii) 200 days, (iii) 600 days?
+# Which stock (out of the three) perform best in the last 
 # (i) 50 days
 # (ii) 200 days (about 1 year)
 # (iii) 600 days (about 3 years)
+# NEW_NEW_NEW (use the nday_change_percent method that you defined)
 #
 #  ######  END QUESTION 10 ######  END QUESTION 10 ######  END QUESTION 10 ######  END QUESTION 10 ######  
 
@@ -247,6 +263,11 @@ print(len(largeCapTech.stocks))
 # In other words, when we created the ETF largeCapTech, did we create a shallow copy of aapl or a deep copy to store it in largeCapTech?
 # Make a guess first, then try.
 # So is it shallow or deep? Is that what we want?
+# NEW_NEW_NEW (after you use add_newday() method to change, say aapl price_eod, 
+# you can verify the change with aapl.price_eod[0]
+# Now see if largeCapTech.stocks['AAPL'].price_eod[0] is the old value or the new value. 
+# We do not want to change the daily values in aapl and largeCapTech.stocks['AAPL'] separately. 
+# We should update once, then all should be changed.)
 #
 #  ######  END QUESTION 11 ######  END QUESTION 11 ######  END QUESTION 11 ######  END QUESTION 11 ######  
 
