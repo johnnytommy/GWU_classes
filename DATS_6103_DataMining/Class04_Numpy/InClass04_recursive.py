@@ -9,18 +9,16 @@ import math
 
 #%%
 # You can just as easily write this following function with loops
-def triangleSum(maxn, sum=0):
+def triangleSum(n):
   """
   Finding the sum of 1+2+...+n
-  :param maxn: the last interger to be added
-  :param sum: the culmulative sum
+  :param n: the last interger to be added
   :return: the sum
   """
-  maxn = math.floor(maxn)
-  if maxn > 1 :
-    sum = maxn+triangleSum(maxn-1,sum)
-    return sum
-  return 1 # execute when maxn = 1
+  n = math.floor(n)
+  if n > 1 :
+    return n+triangleSum(n-1)
+  return 1 # execute when n = 1
 
 # Try write a recursive function to calculate the "factorial". Example, 4-factorial = 4*3*2*1 returns 24
 
