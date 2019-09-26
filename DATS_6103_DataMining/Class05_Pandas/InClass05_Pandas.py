@@ -398,6 +398,9 @@ nfl.to_csv(filecleaned)
 # We would like to explore relations between (choose some that you feel is possible, some might be more difficult to plot)
 # as first, plot these without diet variable
 # if successful, plot these colored by diet
+import matplotlib.pyplot as plt
+# diet.plot(x="Weight", y='Height')  # sample to get started
+
 # weight and height
 # weight and loss
 # weight and loss percentage
