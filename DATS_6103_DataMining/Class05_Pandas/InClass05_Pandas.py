@@ -37,14 +37,11 @@ print(s05)
 
 #%% 
 # Can we build from Numpy array?
-nplist = np.ndarray(fiblist)
+nplist = np.array(fiblist)
 # pandas series
-try: 
-  s = pd.Series(nplist)
-except:
-  print("Cannot create pandas series directly from numpy ndarray")
-  # pass
-# error, doesn't work, has to use a list
+s = pd.Series(nplist)
+print(s)
+
 
 #%%
 # build pandas series from list generator?
@@ -74,7 +71,7 @@ else:
 
 #%%
 # So it works? Let's try again
-listGen = ( 2*n+1 for n in range(10**10000) )
+listGen = ( 2*n+1 for n in range(10**100000000) )
 print(listGen) # this is a generator object
 print(type(listGen))
 print("Working so far!")
