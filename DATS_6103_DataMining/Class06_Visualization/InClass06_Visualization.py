@@ -19,7 +19,7 @@ gss = pd.read_csv(filepath, index_col=11 )
 print('\n',gss.head(),'\n')
 
 # Try these
-rowind = 0
+rowind = 2
 colind = 1
 colname = 'degree'
 try: print(gss.iloc[rowind,colind]) 
@@ -38,7 +38,10 @@ except: print("at[rowind,colname] error")
 #%%
 # what was the problem?
 # Make sure index is unique
-##################  Fill in the code
+# gss = pd.read_csv(filepath, index_col=[11,0] )
+# gss = pd.read_csv(filepath, index_col=['id','year'] )
+gss = pd.read_csv( filepath )
+gss.set_index(['id','year'], inplace=True)
 print('\n',gss.head(),'\n')
 
 #%%
@@ -63,6 +66,7 @@ print(dupentries)
 #%%
 # figure out how you want to clean it. 
 # In this case, either just use dups to clean, or condition id>=0 to clean
+gssc = gss[ dups==False ]
 ##################  Fill in the code
 print(gssc.shape)
 print(gssc.index.is_unique)
