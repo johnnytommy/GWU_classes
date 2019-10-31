@@ -30,7 +30,6 @@ from time import sleep
 # import csv
 import pandas as pd
 
-#%%
 # urlfilepath = os.path.join( dirpath, path2add ,'')
 
 testWeatherData = pd.DataFrame( columns=['zip','temperature','datetime','lat','long','elevation'])
@@ -43,7 +42,6 @@ driver = webdriver.Chrome(r'/Users/edwinlo/Downloads/dev/chromedriver')
 # driver = webdriver.Chrome(r'/Users/edwinlo/Downloads/dev/chromedriver')  # mac OS
 # driver = webdriver.Chrome(r'/Users/edwinlo/Downloads/dev/chromedriver.exe')  # windows
 
-#%%
 driver.get("https://www.weather.gov")
 
 # Selenium
@@ -84,7 +82,6 @@ print('go clicked')
 sleep(1)
 driver.refresh()
 
-#%%
 def getGovWeatherTemperature(soup):
   selectTemp = soup.select('div#current_conditions-summary p.myforecast-current-lrg') # return a list
   return (selectTemp[0].text) if (len(selectTemp)==1) else "error" 
@@ -97,7 +94,7 @@ print(len(soup))
 # selectTemp = soup.select('div#current_conditions-summary p.myforecast-current-lrg') # return a list
 thistemperature = getGovWeatherTemperature(soup)
 # append data to dataframe
-testWeatherData = testWeatherData.append({'zip': zip0, 'temperature': thistemperature}, ignore_index=True)
+# testWeatherData = testWeatherData.append({ 'zip': zip0, 'temperature': thistemperature }, ignore_index=True)
 
 # NOW
 # pull the other data to the dataframe
