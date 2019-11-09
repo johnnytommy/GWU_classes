@@ -105,8 +105,8 @@ rankcolors[dfadmit['rank']==3] = 'b'
 rankcolors[dfadmit['rank']==4] = 'yellow'
 
 # and use different shape for admit 0 and 1
-ax1 = dfadmit[dfadmit.admit==0].plot(x="gre", y="gpa", kind="scatter", color=rankcolors[dfadmit.admit==0], marker='+', label='admitted')
-dfadmit[dfadmit.admit==1].plot(x="gre", y="gpa", kind="scatter", color=rankcolors[dfadmit.admit==1], marker='o', label='rejected', ax = ax1)
+ax1 = dfadmit[dfadmit.admit==0].plot(x="gre", y="gpa", kind="scatter", color=rankcolors[dfadmit.admit==0], marker='+', label='rejected')
+dfadmit[dfadmit.admit==1].plot(x="gre", y="gpa", kind="scatter", color=rankcolors[dfadmit.admit==1], marker='o', label='admitted', ax = ax1)
 # dfadmit.plot(x="gre", y="gpa", kind="scatter", color=rankcolors, marker='+')
 plt.legend(loc='upper left')
 plt.xlabel("GRE score")
@@ -323,7 +323,7 @@ np.exp(modelAdmitAllLogit.conf_int())
 #%%
 # Confusion matrix
 # Define cut-off value
-cut_off = 0.3
+cut_off = 0.7
 # Compute class predictions
 modelpredicitons['classLogitAll'] = np.where(modelpredicitons['admit_GreAllLogit'] > cut_off, 1, 0)
 print(modelpredicitons.classLogitAll.head())
