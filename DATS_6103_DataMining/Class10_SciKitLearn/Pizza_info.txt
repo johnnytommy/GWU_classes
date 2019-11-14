@@ -1,0 +1,18 @@
+Pizza.csv
+from data.world (ret 11/8/2019)
+@sdhilip
+
+
+Nutrient analysis of pizzas
+
+Who likes pizza? I mean, there are so many things to like. let’s take a closer look! The data set pizza. sas7.bdat contains measurements that capture the kind of things that make a pizza tasty. Can you determine which pizza brand works best for you and explain why? The variables in the data set are:
+
+brand -- Pizza brand (class label)
+id -- Sample analysed
+mois -- Amount of water per 100 grams in the sample
+prot -- Amount of protein per 100 grams in the sample
+fat -- Amount of fat per 100 grams in the sample
+ash -- Amount of ash per 100 grams in the sample
+sodium -- Amount of sodium per 100 grams in the sample
+carb -- Amount of carbohydrates per 100 grams in the sample
+cal -- Amount of calories per 100 grams in the sample
