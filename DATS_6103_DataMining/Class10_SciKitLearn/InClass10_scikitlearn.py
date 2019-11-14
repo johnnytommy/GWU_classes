@@ -65,7 +65,7 @@ def dfChkValueCnts(dframe):
 # First read in the datasets. 
 import os
 dirpath = os.getcwd() # print("current directory is : " + dirpath)
-path2add = 'GWU_classes_p/DATS_6103_DataMining/Class10_SciKitLearn'
+path2add = 'GWU_classes/DATS_6103_DataMining/Class10_SciKitLearn'
 filepath = os.path.join( dirpath, path2add ,'Pizza.csv')
 import pandas as pd
 dfpizza = pd.read_csv(filepath)
@@ -214,7 +214,7 @@ np.mean(cv_results) # 0.9943901862799376
 
 # import os
 dirpath = os.getcwd() # print("current directory is : " + dirpath)
-path2add = 'GWU_classes_p/DATS_6103_DataMining/Class09_Regression'
+path2add = 'GWU_classes/DATS_6103_DataMining/Class10_SciKitLearn'
 filepath = os.path.join( dirpath, path2add ,'gradAdmit.csv')
 import pandas as pd
 dfadmit = pd.read_csv(filepath)
