@@ -59,21 +59,21 @@ def make_meshgrid(x, y, h=.02):
     return xx, yy
 
 
-# def plot_contours(ax, clf, xx, yy, **params):
-#     """Plot the decision boundaries for a classifier.
+def plot_contours(ax, clf, xx, yy, **params):
+    """Plot the decision boundaries for a classifier.
 
-#     Parameters
-#     ----------
-#     ax: matplotlib axes object
-#     clf: a classifier
-#     xx: meshgrid ndarray
-#     yy: meshgrid ndarray
-#     params: dictionary of params to pass to contourf, optional
-#     """
-#     Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
-#     Z = Z.reshape(xx.shape)
-#     out = ax.contourf(xx, yy, Z, **params)
-#     return out
+    Parameters
+    ----------
+    ax: matplotlib axes object
+    clf: a classifier
+    xx: meshgrid ndarray
+    yy: meshgrid ndarray
+    params: dictionary of params to pass to contourf, optional
+    """
+    Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+    Z = Z.reshape(xx.shape)
+    out = ax.contourf(xx, yy, Z, **params)
+    return out
 
 
 # # import some data to play with

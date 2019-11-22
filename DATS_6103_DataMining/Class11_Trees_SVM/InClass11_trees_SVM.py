@@ -83,7 +83,7 @@ X_train, X_test, y_train, y_test= train_test_split(xadmit, yadmit, test_size=0.2
 
 #%%
 # Instantiate dtree
-dtree_admit1 = DecisionTreeClassifier(max_depth=5, random_state=1)
+dtree_admit1 = DecisionTreeClassifier(max_depth=4, random_state=1)
 # Fit dt to the training set
 dtree_admit1.fit(X_train,y_train)
 # Predict test set labels
@@ -115,7 +115,7 @@ print(classification_report(y_test, y_pred))
 #%% 
 # Let us try different citeria...
 # Instantiate dtree, try criterion='gini'  or 'entropy'
-dtree_admit2 = DecisionTreeClassifier(criterion='gini', random_state=1)
+dtree_admit2 = DecisionTreeClassifier(criterion='entropy', random_state=1)
 # Fit dt to the training set
 dtree_admit2.fit(X_train,y_train)
 # Predict test set labels
@@ -156,9 +156,10 @@ logitreg_admit.fit(X_train, y_train)
 # Use this plot function plot_labeled_decision_regions() defined in datacamp 
 # which requires function plot_decision_regions from mlxtend.plotting
 #
-# pip instal mlxtend 
+# !pip3 install mlxtend 
 #
 
+#%%
 from mlxtend.plotting import plot_decision_regions
 import matplotlib.pyplot as plt
 
@@ -227,7 +228,7 @@ ypizza = dfpizza['cal']
 # Or try seaborn
 import seaborn as sns
 sns.set()
-sns.pairplot(xpizza)
+sns.pairplot(dfpizza)
 
 #%%
 # Regression Trees
@@ -277,8 +278,11 @@ print('Regression Tree test set RMSE: {:.2f}'.format(rmse_regtree0))
 #%% [markdown]
 #
 # #  Bias-variance tradeoff  
+#
 # high bias: underfitting  
+#
 # high variance: overfitting, too much complexity  
+#
 # Generalization Error = (bias)^2 + Variance + irreducible error  
 # 
 # Solution: Use CV  
@@ -305,7 +309,7 @@ print('Regression Tree test set RMSE: {:.2f}'.format(rmse_regtree0))
 
 # Instantiate a DecisionTreeRegressor dt
 SEED = 28
-regtree1 = DecisionTreeRegressor(max_depth=3, min_samples_leaf=0.22, random_state=SEED)
+regtree1 = DecisionTreeRegressor(max_depth=5, min_samples_leaf=0.13, random_state=SEED)
 
 # Evaluate the list of MSE ontained by 10-fold CV
 from sklearn.model_selection import cross_val_score

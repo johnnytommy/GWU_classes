@@ -13,8 +13,12 @@ node [shape=box] ;
 1 -> 5 ;
 6 [label="mse = 0.034\nsamples = 32\nvalue = 2.476"] ;
 5 -> 6 ;
-7 [label="mse = 0.025\nsamples = 83\nvalue = 2.959"] ;
+7 [label="fat <= 20.81\nmse = 0.025\nsamples = 83\nvalue = 2.959"] ;
 5 -> 7 ;
-8 [label="mse = 0.461\nsamples = 32\nvalue = 4.331"] ;
-0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+8 [label="mse = 0.014\nsamples = 41\nvalue = 2.854"] ;
+7 -> 8 ;
+9 [label="mse = 0.016\nsamples = 42\nvalue = 3.062"] ;
+7 -> 9 ;
+10 [label="mse = 0.461\nsamples = 32\nvalue = 4.331"] ;
+0 -> 10 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
 }
