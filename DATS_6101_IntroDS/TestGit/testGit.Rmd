@@ -1,7 +1,7 @@
 ---
-title: "Intro to R"
+title: "Test Git"
 author: "Edwin Lo"
-date: "Jan 16, 2019"
+date: "Jan 21, 2020"
 output:
   html_document:
     code_folding: hide
@@ -21,7 +21,7 @@ output:
 loadPkg = function(x) { if (!require(x,character.only=T, quietly =T)) { install.packages(x,dep=T,repos="http://cran.us.r-project.org"); if(!require(x,character.only=T)) stop("Package not found") } }
 # unload/detact package when done using it
 # detach_package = function(pkg, character.only = FALSE) { if(!character.only) { pkg <- deparse(substitute(pkg)) } search_item <- paste("package", pkg, sep = ":") while(search_item %in% search()) { detach(search_item, unload = TRUE, character.only = TRUE) } }
-loadPkg("knitr")
+# loadPkg("knitr")
 ```
 
 ```{r setup, include=FALSE}
