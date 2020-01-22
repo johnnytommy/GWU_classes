@@ -61,11 +61,10 @@ Each code chunk can have R-markdown settings of echo=FALSE, eval=TRUE, results='
 You can also embed plots, for example:
 First, try TRUE
 ```{r pressureT, echo=T}
-summary(pressure)
+# This is added by SJG
+tail(pressure,8)
 plot(pressure)
 # USER 2: Delete the line summary(pressure) above, then add the following 2 lines in place of it. Also add a comment with your initial so that others know you added that. Then commit to your branch.
-# This is added by ???
-# tail(pressure,8)
 ```
 
 
