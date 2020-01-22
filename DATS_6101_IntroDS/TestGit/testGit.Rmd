@@ -45,7 +45,11 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ```{r cars}
 summary(cars)
+# USER 1: Add the following 2 lines before line 47 (summary(cars)). Also add a comment with your initial so that others know you added that. Then commit to your branch.
+# This is added by ??? test
+# head(cars) # (Add without the comment sign at the start of line, of course). 
 ```
+
 The dataset/data frame cars is in the base library called "datasets" that comes with R. There are a lot more datasets to explore there.
 
 Each code chunk can have R-markdown settings of echo=FALSE, eval=TRUE, results='hide', message=FALSE, warning=FALSE, etc. OR just include=FALSE will set all those options to FALSE (except eval=TRUE is the default). 
@@ -57,14 +61,11 @@ First, try TRUE
 ```{r pressureT, echo=T}
 summary(pressure)
 plot(pressure)
+# USER 2: Delete the line summary(pressure) above, then add the following 2 lines in place of it. Also add a comment with your initial so that others know you added that. Then commit to your branch.
+# This is added by ???
+# tail(pressure,8)
 ```
 
-Next, try echo=FALSE
-```{r pressureF, echo=F}
-summary(pressure)
-plot(pressure)
-# This is just plotting the pressure
-```
 
 
 Note that the "echo = FALSE" parameter was added to the code chunk to prevent printing of the R code that generated the plot.
@@ -108,7 +109,9 @@ getwd()
 If you want to move your working directory you can use the setwd("Insert File Location Here")
 
 ```{r, echo=TRUE}
-Admit = data.frame(read.csv("LogRegAdmit.csv"))
+# Admit = data.frame(read.csv("LogRegAdmit.csv"))
+Admit = data.frame(c(0,1,1,1,0,1,1,0,1),c(380,660,800,640,520,760,560,400,540),c(3.61,3.67,4.00,3.19,2.93,3.00, 2.98, 3.08, 3.39),c(3,3,1,4,4,2,1,2,3))
+colnames(Admit) = c('admit','gre','gpa','rank')
 head(Admit)
 ```
 
