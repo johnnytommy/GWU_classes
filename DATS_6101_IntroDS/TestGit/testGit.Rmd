@@ -46,7 +46,7 @@ When you click the **Knit** button a document will be generated that includes bo
 ```{r cars}
 summary(cars)
 # USER 1: Add the following 2 lines before line 47 (summary(cars)). Also add a comment with your initial so that others know you added that. Then commit to your branch.
-# This is added by ???
+# This is added by ??? testing
 # head(cars) # (Add without the comment sign at the start of line, of course). 
 ```
 
