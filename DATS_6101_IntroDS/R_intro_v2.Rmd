@@ -1,0 +1,130 @@
+---
+title: "Intro to R"
+author: "Edwin Lo"
+date: "Jan 16, 2019"
+output:
+  html_document:
+    code_folding: hide
+    number_sections: true
+    toc: yes
+    toc_depth: 2
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
+---
+
+```{r basicfcn, include=F}
+# use this function to conveniently load libraries and work smoothly with knitting
+# can add quietly=T option to the require() function
+# note that using this function requires quotes around the package name, as you would when installing packages.
+loadPkg = function(x) { if (!require(x,character.only=T, quietly =T)) { install.packages(x,dep=T,repos="http://cran.us.r-project.org"); if(!require(x,character.only=T)) stop("Package not found") } }
+# unload/detact package when done using it
+# detach_package = function(pkg, character.only = FALSE) { if(!character.only) { pkg <- deparse(substitute(pkg)) } search_item <- paste("package", pkg, sep = ":") while(search_item %in% search()) { detach(search_item, unload = TRUE, character.only = TRUE) } }
+loadPkg("knitr")
+```
+
+```{r setup, include=FALSE}
+# some of common options (and the defaults) are: 
+# include=T, eval=T, echo=T, results='hide'/'asis',..., collapse=F, warning=T, message=T, error=T, cache=T, fig.width=6, fig.height=4, fig.dim=c(6,4) #inches, fig.align='left'/'center','right', 
+# knitr::opts_chunk$set(warning = F, results = T, message = F)
+knitr::opts_chunk$set(warning = F, results = F, message = F)
+# knitr::opts_chunk$set(include = F)
+# knitr::opts_chunk$set(echo = TRUE)
+options(scientific=T, digits = 3) 
+# options(scipen=9, digits = 3) 
+# ‘scipen’: integer. A penalty to be applied when deciding to print numeric values in fixed or exponential notation.  Positive values bias towards fixed and negative towards scientific notation: fixed notation will be preferred unless it is more than ‘scipen’ digits wider.
+# use scipen=999 to prevent scientific notation at all times
+```
+
+# R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>. And the average is .
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+The dataset/data frame cars is in the base library called "datasets" that comes with R. There are a lot more datasets to explore there.
+
+Each code chunk can have R-markdown settings of echo=FALSE, eval=TRUE, results='hide', message=FALSE, warning=FALSE, etc. OR just include=FALSE will set all those options to FALSE (except eval=TRUE is the default). 
+
+# Including Plots
+
+You can also embed plots, for example:
+First, try TRUE
+```{r pressureT, echo=T}
+summary(pressure)
+plot(pressure)
+```
+
+Next, try echo=FALSE
+```{r pressureF, echo=F}
+summary(pressure)
+plot(pressure)
+# This is just plotting the pressure
+```
+
+
+Note that the "echo = FALSE" parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Then we try include=FALSE
+```{r pressureinc, include=F}
+summary(pressure)
+plot(pressure)
+```
+
+Plot is a general function in the base library to make plots. It can make different kinds of plots, depending on the dataframe you put in.  
+
+# Biggest Header (h1): What is a package? 
+## Slightly Bigger Header (h2)
+### Somewhat Bigger Header (h3)
+#### Header line (h4, bold faced)
+
+You can also include **in-line** R calculations like this: the average pressure is `r mean(pressure$pressure)`.
+
+```{r, echo=TRUE}
+loadPkg("ggplot2") # you can use library with or without double quotes. But install.packages requires double quotes.
+# edit(mpg)
+# ?mpg # same as help(mpg)
+head(mpg)
+ggplot(data=mpg)+
+  geom_point(mapping = aes(x=displ, y=hwy))
+```
+
+Now we can also add a color into the mix with a simple adjustment to the code
+```{r, echo=TRUE}
+ggplot(data=mpg)+
+  geom_point(mapping = aes(x=displ, y=hwy, color=class))
+```
+
+So how do we get data into R: First we have to know where R is pulling our data from, we can do this by determing the location of our current working directy 
+
+```{r, echo=TRUE}
+getwd()
+```
+
+If you want to move your working directory you can use the setwd("Insert File Location Here")
+
+```{r, echo=TRUE}
+Admit = data.frame(read.csv("LogRegAdmit.csv"))
+head(Admit)
+```
+
+```{r, echo=TRUE}
+# loadPkg("ggplot2")
+head(Admit)
+loadPkg("tidyverse")
+glimpse(Admit)
+ggplot(data=Admit)+
+  geom_point(mapping = aes(x=gpa, y=gre))
+# detach("package:ggplot2", unload = T) # consider detach packages no longer use to free up system memory
+```
+
+As you might now notice, install.packages does not work well with knitr. You will need to comment out these lines before knitting. Other functions such as "View", "edit", which shifts the focus to another window/tab also do not work well with knitting. You will also need to comment out those lines as well.
+Note that without double blank space in the previous line, is different from here, with 2 spaces at the end.  
+Can you see the difference?  
+
+With or without 2 spaces at the end, if there is a blank line, then it will always be a new paragraph.
+
