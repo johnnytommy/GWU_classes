@@ -61,7 +61,7 @@ cnt = 3 # 2020/1/1 is a Wednesday, so let us start a counting index of 3 for Wed
 # As the cnt value changes, we want to print out the day-of-week info.
 # So 3 gives Wed, 7 gives Sat, 8 should gives Sun, and so forth.
 # use the very common method of finding the remainder (mod 7), print out that info in a single line of code
-
+dow = ?????
 
 #%%
 ###################################### Q4 ###############################
