@@ -29,17 +29,18 @@ adictionary = { "name": "Einstein", 1: "one", astr: 35, aint: 'thirty five', "la
 list1 = [1,5,3,8,2]
 list2 = [2]
 tuple1 = (1,5,3,8,2)
-type(tuple1)
-len(tuple1)
+print("type of tuple1: %s, length of tuple1: %d" % (type(tuple1), len(tuple1)) )
+
 tuple2 = (2)
-type(tuple2)
-# len(tuple2) # does not work
+print("type of tuple2: %s" % type(tuple2) )
+# print("type of tuple2: %s, length of tuple2: %d" % (type(tuple2), len(tuple2)) )
+# len(tuple2) # does not work, error
+
 tuple3 = tuple([2])
-type(tuple3)
-len(tuple3)
+print("type of tuple3: %s, length of tuple3: %d" % (type(tuple3), len(tuple3)) )
+
 tuple4 = ()
-type(tuple4)
-len(tuple4)
+print("type of tuple4: %s, length of tuple4: %d" % (type(tuple4), len(tuple4)) )
 
 
 #%%
@@ -81,7 +82,7 @@ alist[-2:-4]
 # _________________________________________________  
 
 #%%[markdown]
-# ## some other logic rules
+# ## Some other logic rules
 # 
 # _________________________________________________  
 # -(p AND q)
@@ -105,6 +106,16 @@ alist[-2:-4]
 # we usually combine as 
 #
 # (p AND q AND r)
+# _________________________________________________  
+# p OR (q OR r)
+#
+# same as 
+#
+# (p OR q) OR r
+#
+# we usually combine as 
+#
+# (p OR q OR r)
 # _________________________________________________  
 # ## Distributive law 1
 # p AND (q OR r)
@@ -155,7 +166,12 @@ print(incomelevel)
 # write your conditional statment to assign letter grades A, A-, B+ etc according to the syllabus
 
 #%%
-# loops 
+# loops - basic
+for i in range(10):
+  print(i)
+
+#%%
+# loops - iterate a list/tuple/set/dictionary
 # any difference among the three below?
 # for val in list :
 for val in [ 4,'2',("a",5),'end' ] :
@@ -166,13 +182,16 @@ for val in ( 4,'2',("a",5),'end' ) :
 # for val in set :
 for val in { 4,'2',("a",5),'end' } :
   print(val, type(val))
-# for val in dictionary :
+
+# Now for dictionary
+# for val in dictionary : (keys only)
 for key in { "k0":4, "k8":'2', "k1":("a",5), "k5":'end' } :
   print(val, type(key))
   
 # for val in string :
 for char in 'GW Rocks' :
   print(char, type(char))
+  
   
 #%%
 # for index, val in enumerate(list) :
@@ -189,6 +208,7 @@ thething = { "k0":4, "k8":'2', "k1":("a",5), "k5":'end' }
 # what happened to set and dictionary? 
 # Remember that set is un-ordered, and dictionary uses keys, not index. They cannot be enumerated.
 
+#%%
 # for dictionary, you do not need to enumerate to get key, value pair
 # either of these works
 thething = { "k0":4, "k8":'2', "k1":("a",5), "k5":'end' }
@@ -205,9 +225,9 @@ for key, val in thething.items() :
 
 #%%
 # external file
-# import os # already imported start of file
+import os # already imported start of file
 filepath = os.path.join( os.getcwd(), "presidents.txt")
-# filepath = '/Users/edwinlo/GDrive_GWU/github_elo/GWU_classes_p/DATS_6103_DataMining/Class02_loops/Class02_loops/presidents.txt'
+# filepath = '/Users/edwinlo/GDrive_GWU/github_elo/GWU_classes/DATS_6103_DataMining/Class02_functions/presidents.txt'
 print(filepath)
 fh = open(filepath) # fh stands for file handle
 for k in fh.readlines():
