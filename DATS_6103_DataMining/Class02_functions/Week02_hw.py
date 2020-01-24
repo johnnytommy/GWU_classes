@@ -103,6 +103,7 @@ for m in ????? : # loop thru the 12 months
 ###################################### Q5 ###############################
 # A math question
 # For a integer n, let us try to find all the factors and print them out
+import math # if you ever need some math functions like floor()
 n = 1862
 
 # pseudocode
