@@ -30,16 +30,16 @@ list1 = [1,5,3,8,2]
 list2 = [2]
 tuple1 = (1,5,3,8,2)
 type(tuple1)
-len(tuple1)
-tuple2 = (2)
+print(len(tuple1))
+tuple2 = (2,) #u gotta put a comma after this!
 type(tuple2)
-# len(tuple2) # does not work
+print(len(tuple2)) 
 tuple3 = tuple([2])
 type(tuple3)
-len(tuple3)
+print(len(tuple3))
 tuple4 = ()
 type(tuple4)
-len(tuple4)
+print(len(tuple4))
 
 
 #%%
