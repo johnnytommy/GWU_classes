@@ -173,7 +173,8 @@ for key in { "k0":4, "k8":'2', "k1":("a",5), "k5":'end' } :
 # for val in string :
 for char in 'GW Rocks' :
   print(char, type(char))
-  
+
+#CHANGE    
 #%%
 # for index, val in enumerate(list) :
 thething = [ 4,'2',("a",5),'end' ]
