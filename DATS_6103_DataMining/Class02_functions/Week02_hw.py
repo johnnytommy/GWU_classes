@@ -22,9 +22,9 @@ month = m+1 # this is the month to be displayed/printed. The way it is set up no
 maxdays = 7 # this variable will be conditional on the month eventually. Right now, just try 7
 # write a for loop, to print out the day value
 # fill in the ??????
-for d in ?????? :
+for d in (range(maxdays)) :
   day = d+1
-  print( ?????? )
+  print(day)
 
 #%%
 ###################################### Q2 ###############################
@@ -39,8 +39,18 @@ m = 3 # this will be a variable to be looped through eventually. I use the conve
 # write a condition statement to determine the maxdays depending on the m value.
 # For example, when m=0 (Jan), maxdays should be 31, m=3 (Apr), maxdays should be 30, etc.
 # Try both ways, as a chunk of codes, or a one-liner
-maxdays = ?????
-print(maxdays)
+
+a = [0,2,4,6,7,10,11] #31 days
+b = [3,5,8,9] #30 days
+if m in a:  
+  maxdays = 31
+  print(maxdays)
+else if m in b:
+  maxdays = 30
+  print(maxdays)
+else:
+  maxdays = 29
+  print(maxdays)
 #
 # Change your m value (between 0 and 11, inclusive) and run the chunk to see if prints out the correct result.
 #
