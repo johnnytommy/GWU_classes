@@ -24,7 +24,15 @@ triangleSum(21)
 
 #%%
 # Try write a recursive function to calculate the "factorial". Example, 4-factorial = 4*3*2*1 returns 24
+def factorial(n):
+  """
+  calculate the factorial n!
+  """
+  if (n>1):
+    return n*factorial(n-1)
+  return 1
 
+factorial(4)
 
 #%% 
 # If given an array of array of array of ...
@@ -36,11 +44,14 @@ def countNestedNames(a):
   :param a: the nested array of names
   :return: the count
   """
-  cnt = 0
+  cnt = len(a)
+  for item in a:
+    if type(item)==list:
+      cnt = cnt-1
+      # cnt = cnt + countNestedNames(item)
+      cnt += countNestedNames(item)
     
   return cnt
-  
-
 countNestedNames(nestedarray)
 
 #%%
@@ -120,8 +131,8 @@ def mvhanoitowers(n, fromt=0, tot=1):
 #%%
 # Now run it, the towers were initialized with tower A has 3 blocks, none on B nor C.
 # As current config, we have to put in n=3, and fromt must be 0. tot can be 1 or 2
-mvhanoitowers1(3,0,1) # This only print the moves, which does not really need to keep track of tower config
-mvhanoitowers(3,0,1) # This prints the details with config at each step
+mvhanoitowers1(5,0,1) # This only print the moves, which does not really need to keep track of tower config
+mvhanoitowers(5,0,1) # This prints the details with config at each step
 
 
 #%%
