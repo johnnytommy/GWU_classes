@@ -10,18 +10,48 @@
 total = 62.1
 
 def find_grade(total):
-  # write an appropriate and helpful docstring
-  # ??????    fill in your codes here, be sure you have all A, A-, ... thru D, and F grades completed.
-  # grade = ???
-  return grade
+  # write an appropriate and helpful docstring #TODO
+  if   total >= 93:
+    grade = "A"
+    return grade
+  elif total >=90 and total <=92:
+    grade = "A-"
+    return grade
+  elif total >=87 and total <=89:
+    grade = "B+"
+    return grade
+  elif total >=83 and total <=86:
+    grade = "B"
+    return grade
+  elif total >=80 and total <=82:
+    grade = "B-"
+    return grade
+  elif total >=77 and total <=79:
+    grade = "C+"
+    return grade
+  elif total >=73 and total <=76:
+    grade = "C"
+    return grade
+  elif total >=70 and total <=72:
+    grade = "C-"
+    return grade    
+  elif total >=60 and total <=69:
+    grade = "D"
+    return grade
+  else:
+    grade = "F"
+    return grade    
+    
 
 # Try:
 print(find_grade(total))
 
 # Also answer these: 
 # What is the input (function argument) data type for total? 
-# What is the output (function return) data type for find_grade(total) ?
+##INTEGER
 
+# What is the output (function return) data type for find_grade(total) ?
+##STRING
 
 #%%
 ###################################### Q2 ###############################
@@ -30,17 +60,47 @@ print(find_grade(total))
 grade = 'C-'
 
 def to_gradepoint(grade):
-  # write an appropriate and helpful docstring
-  # ??????    fill in your codes here, be sure you have all A, A-, ... thru D, and F grades completed.
-  # gradepoint = ???
-  return gradepoint
+  # write an appropriate and helpful docstring #TODO
+  if   grade == "A":
+    gradepoint = 4.0
+    return gradepoint
+  elif grade == "A-":
+    gradepoint = 3.7
+    return gradepoint
+  elif grade == "B+":
+    gradepoint = 3.3
+    return gradepoint
+  elif grade == "B":
+    gradepoint = 3.0
+    return gradepoint
+  elif grade == " B-":
+    gradepoint = 2.7
+    return gradepoint
+  elif grade == "C+":
+    gradepoint = 2.3
+    return gradepoint
+  elif grade == "C":
+    gradepoint = 2.0
+    return gradepoint
+  elif grade == "C-":
+    gradepoint = 1.7
+    return gradepoint    
+  elif grade == "D":
+    gradepoint = 1.0
+    return gradepoint
+  else:
+    gradepoint = 0
+    return gradepoint    
+    
 
 # Try:
 print(to_gradepoint(grade))
 
 # What is the input (function argument) data type for find_grade? 
-# What is the output (function return) data type for find_grade(grade) ?
+##STRING
 
+# What is the output (function return) data type for find_grade(grade) ?
+##INTEGER
 
 #%%
 ###################################### Q3 ###############################
@@ -49,7 +109,7 @@ print(to_gradepoint(grade))
 course = { "class":"IntroDS", "id":"DATS 6101", "semester":"spring", "year":2018, "grade":'B-', "credits":3 } 
 
 def to_gradepoint_credit(course):
-  # write an appropriate and helpful docstring
+  # write an appropriate and helpful docstring #TODO
   # ??????    fill in your codes here
   # grade_point_credit = ?????
   # eventually, if you need to print out the value to 2 decimal, you can 
