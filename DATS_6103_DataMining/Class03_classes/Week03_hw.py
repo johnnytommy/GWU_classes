@@ -73,7 +73,7 @@ def to_gradepoint(grade):
   elif grade == "B":
     gradepoint = 3.0
     return gradepoint
-  elif grade == " B-":
+  elif grade == "B-":
     gradepoint = 2.7
     return gradepoint
   elif grade == "C+":
@@ -110,19 +110,17 @@ course = { "class":"IntroDS", "id":"DATS 6101", "semester":"spring", "year":2018
 
 def to_gradepoint_credit(course):
   # write an appropriate and helpful docstring #TODO
-  # ??????    fill in your codes here
-  # grade_point_credit = ?????
-  # eventually, if you need to print out the value to 2 decimal, you can 
-  # try something like this for floating point values %f
-  # print(" %.2f " % grade_point_credit)
+  grade_point_credit = to_gradepoint(course['grade']) * course['credits']
   return grade_point_credit
 
 # Try:
 print(" %.2f " % to_gradepoint_credit(course) )
 
 # What is the input (function argument) data type for to_gradepoint_credit? 
-# What is the output (function return) data type for to_gradepoint_credit(course) ?
+##DICT
 
+# What is the output (function return) data type for to_gradepoint_credit(course) ?
+##INT
 
 #%%
 ###################################### Q4 ###############################
@@ -139,7 +137,7 @@ courses = [
   ]
 
 def find_gpa(courses):
-  # write an appropriate and helpful docstring
+  # write an appropriate and helpful docstring #TODO
   total_grade_point_credit =0 # initialize 
   total_credits =0 # initialize
   # ??????    fill in your codes here
