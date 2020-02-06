@@ -1,7 +1,7 @@
 print("Hello world!")
 print(5 / 8)
 print (7+10)
-
+print("HELLO!")
 #%%[markdown]
 #
 # # Python Class 01
@@ -44,7 +44,7 @@ atuple = (1,'person',1,'heart',10,'fingers')
 
 # set  # un-ordered, and distinct elements.  
 aset = { 1,'person',1,'heart',10,'fingers' }
-
+  #Sets are distinct elements
 
 #%%
 # dictionary # like associative array in other lang.  
