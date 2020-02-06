@@ -44,7 +44,7 @@ finally:
 print('This is input1:',inp1)
 
 #%%
-# map(function, *iterables)
+# map(function, *iterables) (It does the function to a list)
 # the iteration stops when the shortest one reaches the end
 # function can be compressed as one-liner, call it "lambda" function as an anonymous function
 alist = [1, 2, 5, 3]
