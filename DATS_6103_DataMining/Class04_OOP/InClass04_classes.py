@@ -65,6 +65,7 @@ elo = Person('Lo','Edwin',1.6,60)
 vars(elo) # shows all attributes and their values
 # dir(elo) # shows all attributes and methods
 
+#%%
 elo.print_info()
 elo.gain_weight_kg(5) # no return value for this method
 # same as
@@ -103,7 +104,7 @@ print(len(persons))
 
 
 #%%
-class Cars :
+class Car :
   
   """ 
   a car
@@ -112,8 +113,8 @@ class Cars :
   # contructor and properties
   # __init__ is also called constructor in other propgramming langs
   # it also set the attributes in here 
-  def __init__(self) :
-    
+  def __init__(self, make, model, eng, cylinder, color, msrp, used, transmission, year, seats, mpg, tire, airbag, sunroof) :
+    , make, model, eng, cylinder, color, msrp, used, transmission, year, seats, mpg, tire, airbag, sunroof
   
   def print_info(self) :
     print( "myself" )
