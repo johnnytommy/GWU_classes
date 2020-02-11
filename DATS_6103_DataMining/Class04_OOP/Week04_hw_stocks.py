@@ -4,8 +4,8 @@
 #%% [markdown]
 #
 # # Week03 HW
-# ## By: xxx
-# ### Date: xxxxxxx
+# ## By: Johnny Thomas
+# ### Date: 2/11/2020
 #
 
 #%% [markdown]
