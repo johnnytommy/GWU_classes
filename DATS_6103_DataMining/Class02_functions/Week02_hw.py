@@ -155,4 +155,12 @@ for i in range(1,n):
   if n % i == 0:
     print(i)
 
-#%%
+grade = 'B-'
+def grade_gp(grade): 
+ gp = 4.0 if (grade=='A') else 3.7 if (grade=='B+') \
+ else 3.4 if (grade=='B+') else 3.1 if (grade=='B') \
+ else 3.0 if (grade=='B-') else 2.9 if (grade=="C") else 0.0
+ return(gp)
+grade_gp(grade)
+
+# %%
