@@ -104,15 +104,14 @@ print(len(persons))
 
 
 #%%
-class Car :
-  
+class Car:
   """ 
   a car
   """
-
   # contructor and properties
   # __init__ is also called constructor in other propgramming langs
   # it also set the attributes in here 
+<<<<<<< HEAD
   def __init__(self,make,model,eng,tankCurrent) :
     #Shortcut!, CTRL D , replace, then enter
     self.make = make
@@ -120,6 +119,14 @@ class Car :
     self.eng = eng
     self.tankCurrent = tankCurrent
     # self.cyl = clylinder
+=======
+  # def __init__(self, make, model, eng, cylinder, color, msrp, used, transmission, year, seats, mpg, tire, airbag, sunroof): 
+  def __init__(self, make, model, eng, tankCurrent): 
+    self.make = make
+    self.model = model
+    self.eng = eng
+    # self.cylinder = cylinder
+>>>>>>> master
     # self.color = color
     # self.msrp = msrp
     # self.used = used
@@ -130,14 +137,28 @@ class Car :
     # self.tire = tire
     # self.airbag = airbag
     # self.sunroof = sunroof
+<<<<<<< HEAD
 
   def __init__(self, make, model, eng, cylinder, color, msrp, used, transmission, year, seats, mpg, tire, airbag, sunroof) :
     , make, model, eng, cylinder, color, msrp, used, transmission, year, seats, mpg, tire, airbag, sunroof
 
+=======
+    self.tankCurrent = tankCurrent
+>>>>>>> master
   
   def print_info(self) :
     print( "myself" )
     return
+<<<<<<< HEAD
+=======
+
+  def fillTank(self, gain):
+    self.tankCurrent += gain
+    return
+  
+
+
+>>>>>>> master
   
   #always start with self
   def fillTank(self,gain):
