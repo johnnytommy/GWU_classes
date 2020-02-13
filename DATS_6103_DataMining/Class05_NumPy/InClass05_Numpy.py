@@ -39,10 +39,10 @@ import numpy as np
 list0 = [9,8,7]
 list0b = [6,5,4]
 #
-# What are the lengths of list1 and list1b?
-
-# What do you get with list1 + listb?
-#
+# What are the lengths of list0 and list0b?
+#3
+# What do you get with list01 + list0b?
+list0 + list0b ##adding lists appends them!
 # 
 
 
@@ -51,25 +51,28 @@ list0b = [6,5,4]
 list1 = [ [11,12,13,14], [21,22,23,24], [31,32,33,34]] 
 list1b = [ [41,42,43,44,45], [51,52,53,54,55], [61,62,63,64,65], [71,72,73,74,75]] 
 #
+len(list1)
 # Again, what is list1 + list1b?
+len(list1 + list1b) #appends and the length is 7, the total of items in the list
 #
 #%%
 # Question: How do you describe (in english) these two lists? What are the "shapes" of the objects?
-#
+"They are lists of lists, nothing more!"
 #
 # Question: how do you get the element '32' in list1?
 #
-# 
+list1[2][1]
 
 # 
 # Question: how do you get the row of [31,32,33,34] in list1?
 # 
-#
+list1[2]
 
 # 
 # Question: How to you get the column of 12, 22, 32 ???
 # 
-#
+[ row[1] for row in list1 ]
+
 #%%
 [ row[1] for row in list1 ]
 
@@ -90,6 +93,8 @@ list2 = [ [11,12,13], [21,22,23], [31,32,33], [41,42,43] ] # two dimensional lis
 #%%
 # How do you create a higher-dimensional list (say 2x3x4)?
 
+list3D = [ [ [ 111,112,113,114],[121,122,123,124],[131,132,133,134]],
+           [ [ 211,212,213,214],[221,222,223,224],[231,232,233,234]]]
 
 # 
 
@@ -157,8 +162,8 @@ print("nparray5.shape =", nparray5.shape)
 
 #%%
 # If they are 2D-arrays, and have compatible dimensions, you can multiply them as matrices
-tprod32 = np.dot(nparray1,nparray2)
-print("tprod32.shape =", tprod32.shape)
+tprod12 = np.dot(nparray1,nparray2)
+print("tprod12.shape =", tprod12.shape)
 mprod21 = np.dot(nparray2,nparray1)
 print("mprod21.shape =", mprod21.shape)
 
@@ -188,8 +193,8 @@ print("tprod32.shape =", tprod32.shape)
 
 #%%
 # filtering and indexing
-print(nparray1[0:2,:2])
-print(nparray1[:,-1:])
+print(nparray1[0:2,:2])  ##Just like r, (row, column)
+print(nparray1[:,-1:]) ##Last column from the end
 
 # Let us do something simpler.
 # Obtain the third column of nparray1
@@ -208,13 +213,13 @@ print(v3.shape) # it is a column vector, or array one by three (3,1)
 # so they are performed on all elements of an object at once.
 # If you need to perform some simple operations on all array elements, 
 #
-nparray1squared = nparray1 ** 2
+nparray1squared = nparray1 ** 2  #Each element will be squared, broadcasting procedure
 print(nparray1squared)
 nparray1mod7 = nparray1 % 7 # remainder from dividing by 7
 print(nparray1mod7)
 nparray1b = np.array(list1b)
 nparray1bovera = nparray1b / nparray1
-print(nparray1bovera)
+print(nparray1bovera) #it works, just don't have he dimensions
 
 # Try some other operations, see if they work.
 
@@ -223,11 +228,11 @@ print(nparray1bovera)
 #%%
 # boolean indexing 
 print(nparray1)
-npbool1greater = nparray1 > 21
+npbool1greater = nparray1 > 21  #Now each value is broadcasted, True or False
 print(npbool1greater)
-print(nparray1[npbool1greater])
-print(nparray1[npbool1greater].shape)
-npbool1mod = nparray1 %2 ==1
+print(nparray1[npbool1greater]) #these are all the true ones
+print(nparray1[npbool1greater].shape) #how many true ones? 7 (7,)
+npbool1mod = nparray1 %2 ==1 #odd numbers
 print(npbool1mod)
 print(nparray1[npbool1mod])
 print(nparray1[npbool1mod].shape)
