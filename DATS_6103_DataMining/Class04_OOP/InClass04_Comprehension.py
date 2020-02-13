@@ -100,9 +100,12 @@ for val in listGen: print(val) # essentially same as print(listComp), except it 
 
 # #######  DO NOT do this
 # repeat:  DO NOT DO THIS
-# [n**2 for n in range(10**(100000)) ]
+#%%
+[n**2 for n in range(10**(100000)) ]
 # Your wonderful computer cannot handle this. Be kind.
 #
+
+#%%
 # But you can do this:
 listGen = ( n**2 for n in range(10**1000000) )
 print(listGen)
@@ -110,6 +113,7 @@ for v in listGen:
   if v>99 : break
   print(v)
 
+#%%
 # OR 
 listGen = ( n**2 for n in range(10**1000000) )
 for i,v in enumerate(listGen):
