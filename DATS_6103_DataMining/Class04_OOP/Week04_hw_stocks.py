@@ -5,7 +5,7 @@
 #
 # # Week03 HW
 # ## By: Johnny Thomas
-# ### Date: 2/11/2020
+# ### Date: 2/12/2020
 #
 
 #%% [markdown]
@@ -25,6 +25,8 @@
 # Run this cell as is. If you see some output in the interactive python window, then it is 
 # working. If not, you might need to fix the file path accordingly for your OS/platform.
 # filepath = "/Users/edwinlo/GDrive_GWU/github_elo/GWU_classes_p/DATS_6103_DataMining/Class04_OOP/AAPL_20140912_20190912_daily_eod_vol.csv"
+import os
+
 appl_date = []
 appl_price_eod = []
 filepath = os.path.join( os.getcwd(), "AAPL_20140912_20190912_daily_eod_vol.csv")
@@ -121,7 +123,11 @@ class Stock:
     # essentially the same function as compute_delta1_list. With some hindsight, or when the codes are re-factored, we can properly combine them
 
     #  ######   QUESTION 2    ######   QUESTION 2    ######   QUESTION 2    ######   QUESTION 2    ######  
-    # Fill in the codes here 
+    eod_shift1 = self.price_eod.copy() 
+    eod_shift1.pop(0) # remove the first element (shifting the day)
+    self.delta2 = list(map(lambda x,y: x-y, self.price_eod, eod_shift1))
+    print(self.name.upper(),": The latest 5 daily changes in delta2: ")
+    for i in range(0,5): print(self.delta2[i]) # checking the first five values
     # Need to find the daily changes of the daily change, and save it to the list self.delta2
     # It is the second derivative, the acceleration (or deceleration if negative) of the stock momentum.
     # Essentially the same as compute_delta1_list, just on a different list 
