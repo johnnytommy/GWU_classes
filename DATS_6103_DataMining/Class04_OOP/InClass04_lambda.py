@@ -79,12 +79,15 @@ print(list(resultlist)) # still here, still the same
 #%%
 nmax = 1000
 seq = list( map(lambda n: n**(-2), range(1,nmax+1) ) )
+
+#%%
 sum = 0
 for v in seq: sum = sum+v
 print(sum)
 print(math.pi**2/6)
 print("Difference =", math.pi**2/6-sum)
 
+#%%
 def findDiff(nmax):
   seq = list( map(lambda n: n**(-2), range(1,nmax+1) ) )
   sum=0

@@ -27,8 +27,8 @@ loadPkg = function(x) { if (!require(x,character.only=T, quietly =T)) { install.
 ```{r setup, include=FALSE}
 # some of common options (and the defaults) are: 
 # include=T, eval=T, echo=T, results='hide'/'asis',..., collapse=F, warning=T, message=T, error=T, cache=T, fig.width=6, fig.height=4, fig.dim=c(6,4) #inches, fig.align='left'/'center','right', 
-# knitr::opts_chunk$set(warning = F, results = T, message = F)
-knitr::opts_chunk$set(warning = F, results = F, message = F)
+# knitr::opts_chunk$set(warning = F, results = 'markup', message = F)
+knitr::opts_chunk$set(warning = F, results = 'hide', message = F)
 # knitr::opts_chunk$set(include = F)
 # knitr::opts_chunk$set(echo = TRUE)
 options(scientific=T, digits = 3) 
