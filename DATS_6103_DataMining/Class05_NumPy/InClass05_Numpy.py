@@ -23,9 +23,12 @@
 # !pip install numpy
 # !pip3 install numpy
 # sudo pip install numpy
-# sudo pip3 install numpy
+# ! sudo pip3 install numpy
 # sudo -H pip3 install numpy
 # conda install numpy
+# !pip3 freeze
+# ! pip3 list
+! pip3 show numpy
 
 #%%
 import numpy as np 
