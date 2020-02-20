@@ -131,6 +131,8 @@ ctuple = atuple
 ctuple = (1,'person','2','hearts', 6 , 'fingers')
 print(atuple)
 print(ctuple)
+
+#%%
 # notice that tuples cannot assign a new value individually like atuple[1]='guy', but you can reassign the entire variable
 clist = list(alist)
 clist = alist[:]

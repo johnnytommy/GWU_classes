@@ -20,12 +20,15 @@
 
 #%%
 # might need to install numpy from the terminal
-# !pip install numpy
-# !pip3 install numpy
-# sudo pip install numpy
-# sudo pip3 install numpy
-# sudo -H pip3 install numpy
-# conda install numpy
+# ! pip install numpy
+# ! pip3 install numpy
+# ! sudo pip install numpy
+# ! sudo pip3 install numpy
+# ! sudo -H pip3 install numpy
+# ! conda install numpy
+# ! pip3 freeze
+# ! pip3 list
+! pip3 show numpy
 
 #%%
 import numpy as np 
@@ -196,6 +199,7 @@ print("tprod32.shape =", tprod32.shape)
 print(nparray1[0:2,:2])  ##Just like r, (row, column)
 print(nparray1[:,-1:]) ##Last column from the end
 
+#%%
 # Let us do something simpler.
 # Obtain the third column of nparray1
 print(nparray1)

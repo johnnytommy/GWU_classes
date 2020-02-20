@@ -67,6 +67,7 @@ s = pd.Series(fiblist)
 print(s)
 print(s.values)
 
+#%%
 # add series name to it
 s = pd.Series(fiblist, name='Fibonacci sequence')
 print(s)
