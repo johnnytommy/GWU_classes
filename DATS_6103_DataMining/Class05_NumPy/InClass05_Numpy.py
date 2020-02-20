@@ -20,13 +20,13 @@
 
 #%%
 # might need to install numpy from the terminal
-# !pip install numpy
-# !pip3 install numpy
-# sudo pip install numpy
+# ! pip install numpy
+# ! pip3 install numpy
+# ! sudo pip install numpy
 # ! sudo pip3 install numpy
-# sudo -H pip3 install numpy
-# conda install numpy
-# !pip3 freeze
+# ! sudo -H pip3 install numpy
+# ! conda install numpy
+# ! pip3 freeze
 # ! pip3 list
 ! pip3 show numpy
 
@@ -42,9 +42,10 @@ import numpy as np
 list0 = [9,8,7]
 list0b = [6,5,4]
 #
-# What are the lengths of list1 and list1b?
+# What are the lengths of list0 and list0b?
 
-# What do you get with list1 + listb?
+# What do you get with list0 + list0b?
+print(list0 + list0b)
 #
 # 
 
@@ -59,20 +60,25 @@ list1b = [ [41,42,43,44,45], [51,52,53,54,55], [61,62,63,64,65], [71,72,73,74,75
 #%%
 # Question: How do you describe (in english) these two lists? What are the "shapes" of the objects?
 #
-#
 # Question: how do you get the element '32' in list1?
 #
-# 
-
-# 
+list1[2][1]
 # Question: how do you get the row of [31,32,33,34] in list1?
 # 
-#
-
-# 
+list1[2]
+list1[-1]
 # Question: How to you get the column of 12, 22, 32 ???
 # 
-#
+list1[:][1]
+#%%
+[ row[1] for row in list1 ]
+
+#%%
+# OR Loop it
+v3 = []
+for row in list1: 
+  v3.append(row[1])
+print(v3)
 #%%
 [ row[1] for row in list1 ]
 
@@ -92,7 +98,9 @@ list2 = [ [11,12,13], [21,22,23], [31,32,33], [41,42,43] ] # two dimensional lis
 
 #%%
 # How do you create a higher-dimensional list (say 2x3x4)?
-
+# list3D = [  [  [ 111,112,113,114]  ,   ,   ]   ,  [ , , ]  ]
+list3D = [ [ [ 111,112,113,114 ],[ 121,122,123,124 ],[131,132,133,134] ] ,
+           [ [ 211,212,213,214 ],[ 221,222,223,224 ],[231,232,233,234] ] ]
 
 # 
 
@@ -160,8 +168,8 @@ print("nparray5.shape =", nparray5.shape)
 
 #%%
 # If they are 2D-arrays, and have compatible dimensions, you can multiply them as matrices
-tprod32 = np.dot(nparray1,nparray2)
-print("tprod32.shape =", tprod32.shape)
+tprod12 = np.dot(nparray1,nparray2)
+print("tprod12.shape =", tprod12.shape)
 mprod21 = np.dot(nparray2,nparray1)
 print("mprod21.shape =", mprod21.shape)
 
@@ -194,6 +202,7 @@ print("tprod32.shape =", tprod32.shape)
 print(nparray1[0:2,:2])
 print(nparray1[:,-1:])
 
+#%%
 # Let us do something simpler.
 # Obtain the third column of nparray1
 print(nparray1)

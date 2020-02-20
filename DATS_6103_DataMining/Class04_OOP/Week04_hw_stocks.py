@@ -3,7 +3,7 @@
 
 #%% [markdown]
 #
-# # Week03 HW
+# # Week04 HW
 # ## By: xxx
 # ### Date: xxxxxxx
 #
@@ -25,6 +25,7 @@
 # Run this cell as is. If you see some output in the interactive python window, then it is 
 # working. If not, you might need to fix the file path accordingly for your OS/platform.
 # filepath = "/Users/edwinlo/GDrive_GWU/github_elo/GWU_classes_p/DATS_6103_DataMining/Class04_OOP/AAPL_20140912_20190912_daily_eod_vol.csv"
+import os
 appl_date = []
 appl_price_eod = []
 filepath = os.path.join( os.getcwd(), "AAPL_20140912_20190912_daily_eod_vol.csv")
