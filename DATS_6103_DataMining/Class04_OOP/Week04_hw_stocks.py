@@ -5,7 +5,7 @@
 #
 # # Week03 HW
 # ## By: Johnny Thomas
-# ### Date: 2/12/2020
+# ### Date: 2/16/2020
 #
 
 #%% [markdown]
