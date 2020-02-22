@@ -264,9 +264,10 @@ except:
 
 #%%
 # Now with the index changed, what do we get from
-print(pdfib3[5:7])
-print(pdfib3[5:0])
-print(pdfib3[9])
+print(pdfib, '\n')
+print(pdfib[5:7])
+print(pdfib[5:0])
+print(pdfib[9])
 
 #%%
 # What if the (integer) index is not defined in our series? 
@@ -298,6 +299,8 @@ print(pdfib[5])
 print(f'type = {type(pdfib[5])}\n')
 print(pdfib[9])
 print(f'type = {type(pdfib[9])}\n')
+print(pdfib[8:9])
+print(f'type = {type(pdfib[8:9])}\n')
 
 
 #%% [markdown]
@@ -412,7 +415,7 @@ dfChkBasics(nfl, True)
 #%%
 # You can select subsets using loc and iloc functions
 # index locator iloc
-colsubset = nfl.iloc[:,1:3]
+colsubset = nfl.iloc[:,2:4]
 colsubset.head()
 
 #%%
@@ -460,8 +463,9 @@ nfl.head()
 # or use GameDate AND HomeTeam to create an unique pair as index (Advance Indexing)
 nfl2 = pd.read_csv(filepath, index_col=[0,2] ) 
 nfl2.head()
+#%%
 # This multi-index is still not unique
-nfl2.loc[(20081130,'CLE')]
+nfl2.loc[(20081130,'MIN')]
 
 
 #%% [markdown]
@@ -569,7 +573,7 @@ plt.close()
 # and another is to use Seaborn
 # import seaborn as sns
 import numpy as np
-colors = np.where(diet['Diet']==1,'r','-')
+colors = np.where(diet['Diet']==1,'magenta','-')
 # colors[diet['Diet']==1] = 'r'
 colors[diet['Diet']==2] = 'g'
 colors[diet['Diet']==3] = 'b'

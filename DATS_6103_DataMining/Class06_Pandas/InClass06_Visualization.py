@@ -91,6 +91,8 @@ except: print("nor using tuple-index as range for multi index with numeric as in
 # Try change index to str type
 gssc = gssc.reset_index()
 gssc['id'] = gssc['id'].astype(str)
+
+#%%
 gssc['year'] = gssc['year'].astype(str)
 # gssc.describe()
 gssc.id.dtype  # 'O' for object
