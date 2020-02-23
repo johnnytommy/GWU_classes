@@ -253,7 +253,6 @@ import numpy as np
 #
 # write your codes here
 #
-
 #%%
 # 10.5) reshape nparray4 into a 2x3x4 numpy array, call it nparray3D
 # remember to print the result
