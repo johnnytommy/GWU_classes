@@ -28,7 +28,7 @@
 # ! conda install numpy
 # ! pip3 freeze
 # ! pip3 list
-! pip3 show numpy
+# ! pip3 show numpy
 
 #%%
 import numpy as np 
