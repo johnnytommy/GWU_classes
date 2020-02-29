@@ -124,6 +124,8 @@ finally: print(df.childs.describe(), '\n', df.childs.value_counts(dropna=False))
 # 
 #
 # Let us try this on the age column, which is still an object/string
+
+#%%
 try: df.age = pd.to_numeric( df.age )
 except: print("Cannot handle to_numeric for column: age")
 finally: print(df.age.describe(), '\n', df.age.value_counts(dropna=False))
