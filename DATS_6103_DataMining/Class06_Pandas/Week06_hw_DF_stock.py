@@ -4,8 +4,8 @@
 #%% [markdown]
 #
 # # Week06 HW
-# ## By: xxx
-# ### Date: xxxxxxx
+# ## By: Johnny Thomas
+# ### Date: 02.29.2020
 #
 
 #%% [markdown]
@@ -73,8 +73,8 @@ dfChkBasics(dfaapl)
 
 # ######  QUESTION 1      QUESTION 1      QUESTION 1   ##########
 
-# What are the variables in the df? 
-# What are the data types for these variables?
+#Variable Names and their Type
+print(dfaapl.dtypes)
 
 # ######  END of QUESTION 1    ###   END of QUESTION 1   ##########
 
@@ -141,7 +141,9 @@ class Stock:
 
     # ######  QUESTION 2      QUESTION 2      QUESTION 2   ##########
 
-    # write your codes here
+    self.data['delta1'] = 0  # initialize a new column with 0s
+    self.data['delta1'] = self.data['price'][0:-1] - self.data.price.values[1:]   # self.data['price'] is same as self.price for df
+
     
     # ######  END of QUESTION 2    ###   END of QUESTION 2   ##########
 
