@@ -427,7 +427,7 @@ plt.show()
 
 #%%
 # Add jittering 
-fuzzyincome = weThePeople.rincome + np.random.normal(0,2, size=len(weThePeople.rincome))
+fuzzyincome = weThePeople.rincome + np.random.normal(0,1, size=len(weThePeople.rincome))
 plt.plot(weThePeople.age, fuzzyincome, 'o', markersize=3, alpha = 0.1)
 plt.ylabel('Respondent income monthly? ($1k)')
 plt.xlabel('Age')
