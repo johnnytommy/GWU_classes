@@ -397,6 +397,7 @@ dfgap_pv2 = dfgap.pivot(index='year', columns='country' , values=['lifeExp','gdp
 dfChkBasics(dfgap_pv2)
 #
 # What is the shape of this df?
+dfgap_pv2.shape
 # What are the convenient things to work with this df?
 # What are the cons with this structure?
 
