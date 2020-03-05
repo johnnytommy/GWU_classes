@@ -19,6 +19,8 @@ plt.style.use('classic')
 
 #%%
 import os
+import pip
+from bokeh._testing.plugins import selenium
 os.chdir('../Class07_Preprocess')  
 # sometime when I opened the workspace from another folder, the 
 # working directory getcwd() will be in the wrong place. 
@@ -531,9 +533,10 @@ dfChkBasics(dfgap_mpi2)
 #%% [markdown]
 # 1) Find out the version number of chrome on your computer. For me, it's version 79.0.3945.130
 # You need this info to download
+#80.0.3987.122
 # 
 # 2) install selenium
-# $ pip install selenium (or use pip3)
+#pip install selenium 
 #
 # 3) follow the url from the messages when you install selenium to download chromeDriver 
 # or directly from <https://chromedriver.chromium.org/home> to find out more

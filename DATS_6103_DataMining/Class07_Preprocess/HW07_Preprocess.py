@@ -2,31 +2,20 @@
 # To add a new markdown cell, type '#%% [markdown]'
 
 #%%
+import os
+import pip
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from bokeh._testing.plugins import selenium
+os.chdir('../Class07_Preprocess')  
+# sometime when I opened the workspace from another folder, the 
+# working directory getcwd() will be in the wrong place. 
+# You can change it with chdir()
+dirpath = os.getcwd() # print("current directory is : " + dirpath)
+filepath = os.path.join( dirpath, 'HappyPeople.csv')
+df = pd.read_csv(filepath)  
 
-#
-# https://gssdataexplorer.norc.org 
-# create an account
-# create a project
-# select these eight variables: ballot, id, year, hrs1 (hours worked last week), marital, childs, income, happy, 
-# (use the search function to find them if needed.)
-# add the variables to cart 
-# extract data 
-# name your extract
-# add all the 8 variables to the extract
-# Choose output option, select only years 2000 - 2018 
-# file format Excel Workbook (data + metadata)
-# create extract
-# It will take some time to process. 
-# When it is ready, click on the download button. 
-# you will get a .tar file
-# if your system cannot unzip it, google it. (Windows can use 7zip utility. Mac should have it (tar function) built-in.)
-# rename file from GSS to HappyPeople
-# Open in excel (or other comparable software), then save it as csv
-# So now you have HappyPeople.csv to work with
-#
 # When we import using pandas, we need to do pre-processing like what we did in class
 # So clean up the columns. You can use some of the functions we defined in class, like the total family income, and number of children. 
 # Other ones like worked hour last week, etc, you'll need a new function. 
