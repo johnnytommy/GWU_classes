@@ -186,7 +186,7 @@ for val in { 4,'2',("a",5),'end' } :
 # Now for dictionary
 # for val in dictionary : (keys only)
 for key in { "k0":4, "k8":'2', "k1":("a",5), "k5":'end' } :
-  print(val, type(key))
+  print(key, type(key))
   
 # for val in string :
 for char in 'GW Rocks' :

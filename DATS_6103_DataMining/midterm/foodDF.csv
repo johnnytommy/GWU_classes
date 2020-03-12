@@ -1,0 +1,76 @@
+category,hours,itemid,itemtype,itemname,itemprice,ingredient,ingredientid,ingredienttype,addprice
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,batter,1001,Regular,0.0
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,batter,1003,Blueberry,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,batter,1006,Caramel,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,batter,1007,Mulberry,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,batter,1008,Angel's Food,0.75
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,batter,1009,Fudge,0.75
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,batter,1010,Strawberry,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,batter,1011,Diet,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3001,None,0.0
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3002,Glazed,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3003,Sugar,0.25
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3005,Cinnamon Sugar,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3006,Sea Salt,0.25
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3008,Chocolate with Sprinkles,0.75
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3009,Chocolate,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3010,M and M,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3011,Sour kids,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3012,Oreo,0.5
+sweets,10a-4p,0001,donut hole,anti-cake,4.95,topping,3013,Nutella,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,batter,1001,Regular,0.0
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,batter,1002,Chocolate,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,batter,1003,Blueberry,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,batter,1004,Devil's Food,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,batter,1005,Sour,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,batter,1006,Caramel,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,batter,1007,Mulberry,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,batter,1009,Fudge,0.75
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,batter,1010,Strawberry,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3001,None,0.0
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3002,Glazed,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3003,Sugar,0.25
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3004,Powdered Sugar,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3005,Cinnamon Sugar,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3008,Chocolate with Sprinkles,0.75
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3009,Chocolate,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3010,M and M,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3011,Sour kids,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3013,Nutella,0.5
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3014,Maple,0.75
+sweets,10a-4p,0002,fried donut,unicorn butt sneeze,5.95,topping,3015,Special,1.25
+sweets,10a-4p,0003,bagel,einstein,3.95,batter,1001,Regular,0.0
+sweets,10a-4p,0003,bagel,einstein,3.95,batter,1003,Blueberry,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,batter,1004,Devil's Food,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,batter,1005,Sour,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,batter,1006,Caramel,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,batter,1007,Mulberry,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,batter,1008,Angel's Food,0.75
+sweets,10a-4p,0003,bagel,einstein,3.95,batter,1010,Strawberry,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,batter,1011,Diet,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,topping,3001,None,0.0
+sweets,10a-4p,0003,bagel,einstein,3.95,topping,3005,Cinnamon Sugar,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,topping,3006,Sea Salt,0.25
+sweets,10a-4p,0003,bagel,einstein,3.95,topping,3007,Old Bay,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,topping,3008,Chocolate with Sprinkles,0.75
+sweets,10a-4p,0003,bagel,einstein,3.95,topping,3009,Chocolate,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,topping,3010,M and M,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,topping,3012,Oreo,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,topping,3013,Nutella,0.5
+sweets,10a-4p,0003,bagel,einstein,3.95,topping,3014,Maple,0.75
+beverages,8a-10p,2001,coffee,irish,8.95,base,5001,Regular,0.0
+beverages,8a-10p,2001,coffee,irish,8.95,base,5002,Decaf,0.95
+beverages,8a-10p,2001,coffee,irish,8.95,base,5003,Double,0.95
+beverages,8a-10p,2001,coffee,irish,8.95,condiment,7001,None,0.0
+beverages,8a-10p,2001,coffee,irish,8.95,condiment,7002,Cream,0.25
+beverages,8a-10p,2001,coffee,irish,8.95,condiment,7003,Sugar,0.0
+beverages,8a-10p,2001,coffee,irish,8.95,condiment,7004,Almond milk,0.75
+beverages,8a-10p,2001,coffee,irish,8.95,condiment,7005,Soy milk,0.75
+beverages,8a-10p,2002,capucino,Fusion,6.95,base,5001,Regular,0.0
+beverages,8a-10p,2002,capucino,Fusion,6.95,base,5002,Double shot,0.75
+beverages,8a-10p,2002,capucino,Fusion,6.95,base,5003,Triple shot,1.5
+beverages,8a-10p,2002,capucino,Fusion,6.95,condiment,7001,None,0.0
+beverages,8a-10p,2002,capucino,Fusion,6.95,condiment,7002,Cream,0.25
+beverages,8a-10p,2002,capucino,Fusion,6.95,condiment,7003,Sugar,0.0
+beverages,8a-10p,2002,capucino,Fusion,6.95,condiment,7004,Almond milk,0.75
+beverages,8a-10p,2002,capucino,Fusion,6.95,condiment,7005,Soy milk,0.75
