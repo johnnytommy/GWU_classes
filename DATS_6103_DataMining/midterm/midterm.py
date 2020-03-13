@@ -134,15 +134,13 @@ print(dfgap_gdp.head())
 #dataframe of the means of all the countries in the continent
 mean_dgppp = dfgap_gdppp.groupby('continent').mean()
 
-#unstack
-x = mean_dgppp.unstack(1)
-#Africa in 2007
-"I am running out of time but now that the df is all the means of the continents I need to call specifically 2007 from the Africa row."
+#Africa in 2007; bless the rains baby
+print(mean_dgppp.at['Africa', 2007])
 
-#All the Americas 
-"This is more straight forward, just have to mean all the America values."
 
-"My difficulty is calling specifically the Americas/Africa Row...."
+#All the Americas; bless the USA baby
+print(mean_dgppp.loc['Americas',:].mean())
+
 #%%
 # We have a JSON object (just a dictionary of dictionary of list of dictionary of dictionary of list of...) for the menu items at a cafe, we called it foodItems.
 
