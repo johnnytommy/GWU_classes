@@ -133,9 +133,9 @@ print(dfgap_gdp.head())
 
 #dataframe of the means of all the countries in the continent
 mean_dgppp = dfgap_gdppp.groupby('continent').mean()
+
 #unstack
 x = mean_dgppp.unstack(1)
-
 #Africa in 2007
 "I am running out of time but now that the df is all the means of the continents I need to call specifically 2007 from the Africa row."
 
@@ -546,15 +546,15 @@ def insertFoodRow(obj, level=1, category="", hours="", itemid=0, itemtype="", it
       ingredienttype = addon["type"]
       addprice = addon["add"]
       #
-      foodDF.append(obj)
-      #
-      # QUESTION 15   xxxxxxx #TODO
+      # 
+      #foodDF.append(obj, ingnore_index = True)
+      # QUESTION 15   xxxxxxx 
       # Use what you got in Q 14.
       # If you cannot complete this part, use the next three lines. 
       # Then you can at least continue the next tasks without getting stuck.
-      # dtype_dic= { 'category':str,'hours':str,'itemid':str,'itemtype':str,'itemname':str,'itemprice':float,'ingredient':str,'ingredientid':str,'ingredienttype':str,'addprice':float }
-      # filepath = os.path.join( os.getcwd() ,'foodDF.csv')
-      # foodDF = pd.read_csv(filepath, dtype = dtype_dic)
+      dtype_dic= { 'category':str,'hours':str,'itemid':str,'itemtype':str,'itemname':str,'itemprice':float,'ingredient':str,'ingredientid':str,'ingredienttype':str,'addprice':float }
+      filepath = os.path.join( os.getcwd() ,'foodDF.csv')
+      foodDF = pd.read_csv(filepath, dtype = dtype_dic)
 
     return # end case level == 6
 
@@ -564,6 +564,8 @@ def insertFoodRow(obj, level=1, category="", hours="", itemid=0, itemtype="", it
 insertFoodRow(foodItems)
 # check if it works
 foodDF.head()
+
+"I genuinely tried here with putting foodDF.append(obj) but to no avail."
 
 # You should see this:
 
@@ -577,7 +579,8 @@ foodDF.head()
 #%%
 # QUESTION 16   xxxxxxx
 # What is the shape of foodDF?  (Should have 75 rows!!)
-print(foodDF.shape())
+print(foodDF.shape)
+"75,10"
 
 #%%
 # Just read and run this cell
@@ -749,7 +752,8 @@ class Orderitem:
     # the addons, and add the addon subtotals to here.
     tot = self.itemprice # this is the base price
     # 
-    # Now loop thru the addons, and add the subtotals here.
+    for i in self.addons:
+        tot = i[1]
     #
     return tot
   
