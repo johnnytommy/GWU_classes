@@ -12,7 +12,6 @@ dirpath = os.getcwd()
 filepath = os.path.join( dirpath ,'Pizza.csv')
 pizza = pd.read_csv(filepath, index_col="id")
 
-
 #%%
 # QUESTION 01   xxxxxxx
 # Violin plots
