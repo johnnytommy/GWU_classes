@@ -4,8 +4,8 @@
 #%% [markdown]
 #
 # # Week06 HW
-# ## By: xxx
-# ### Date: xxxxxxx
+# ## By: Johnny Thomas
+# ### Date: 2/2/2020
 #
 
 #%% [markdown]
@@ -81,7 +81,7 @@ dfChkBasics(dats)
 
 # ######  QUESTION 1      QUESTION 1      QUESTION 1   ##########
 
-# write your codes here
+print(dats.mean())
 
 # ######  END of QUESTION 1    ###   END of QUESTION 1   ##########
 
@@ -92,8 +92,7 @@ dfChkBasics(dats)
 
 # ######  QUESTION 2      QUESTION 2      QUESTION 2   ##########
 
-# write your codes here
-
+dats.insert(8, 'HWavg', dats[['H1','H2',"H3",'H4','H5','H6','H7','H8']].mean(axis=1))
 # ######  END of QUESTION 2    ###   END of QUESTION 2   ##########
 
 dats.head() # check result
@@ -105,8 +104,11 @@ dats.head() # check result
 
 # ######  QUESTION 3      QUESTION 3      QUESTION 3   ##########
 
-# write your codes here
+#dats['total'] = 
+HW = dats.apply(lambda row: row['H1' : 'HWavg'].sum(),axis=1) * .3
+tot = HW + (dats['Q1'] * .10) + (dats['Q2'] * .15) + (dats['Proj1'] * .20)+ (dats['Proj2'] * .25)
 
+dats['total'] = tot.round(2)
 # ######  END of QUESTION 3    ###   END of QUESTION 3   ##########
 
 dats.head() # check result
@@ -116,7 +118,7 @@ dats.head() # check result
 
 # ######  QUESTION 4      QUESTION 4      QUESTION 4   ##########
 
-# write your codes here
+print(dats.mean())
 
 # ######  END of QUESTION 4    ###   END of QUESTION 4   ##########
 
@@ -126,27 +128,56 @@ dats.head() # check result
 
 # ######  QUESTION 5      QUESTION 5      QUESTION 5   ##########
 
-# write your codes here
+q5 = os.path.join( os.getcwd(), 'question5.csv')
+dats.to_csv(q5)  
 
 # ######  END of QUESTION 5    ###   END of QUESTION 5   ##########
 
 
 
 #%%
+# ######  QUESTION 6      QUESTION 6      QUESTION 6   ##########
+
 # In Week03 hw, we wrote a function to convert course total to letter grades. You can use your own, or the one from the solution file here.
 def find_grade(total):
-  # write an appropriate and helpful docstring
+  # Function that takes an integer course total (total) and returns the letter grade.
   """
   convert total score into grades
   :param total: 0-100 
   :return: str
   """
-  # ######  QUESTION 6      QUESTION 6      QUESTION 6   ##########
-
-  # copy your codes here, either from your Week03 hw, or the solution file
-
-  # ######  END of QUESTION 6    ###   END of QUESTION 6   ##########
-  return grade  
+  if   total >= 93:
+    grade = "A"
+    return grade
+  elif total >=90 and total <93:
+    grade = "A-"
+    return grade
+  elif total >=87 and total <90:
+    grade = "B+"
+    return grade
+  elif total >=83 and total <87:
+    grade = "B"
+    return grade
+  elif total >=80 and total <83:
+    grade = "B-"
+    return grade
+  elif total >=77 and total <80:
+    grade = "C+"
+    return grade
+  elif total >=73 and total <77:
+    grade = "C"
+    return grade
+  elif total >=70 and total <73:
+    grade = "C-"
+    return grade    
+  elif total >=60 and total <70:
+    grade = "D"
+    return grade
+  else:
+    grade = "F"
+    return grade    
+    
+# ######  END of QUESTION 6    ###   END of QUESTION 6   ########## 
 
 #%%
 # Let us create one more column for the letter grade, just call it grade.
@@ -162,7 +193,10 @@ dats.head()  # check results
 
 # ######  QUESTION 7      QUESTION 7      QUESTION 7   ##########
 
-# write your codes here
+import matplotlib.pyplot as plt
+
+prob = dats.grade.value_counts()
+prob.plot(kind='bar')
 
 # ######  END of QUESTION 7    ###   END of QUESTION 7   ##########
 

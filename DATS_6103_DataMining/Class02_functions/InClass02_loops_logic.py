@@ -29,6 +29,17 @@ adictionary = { "name": "Einstein", 1: "one", astr: 35, aint: 'thirty five', "la
 list1 = [1,5,3,8,2]
 list2 = [2]
 tuple1 = (1,5,3,8,2)
+type(tuple1)
+print(len(tuple1))
+tuple2 = (2,) #u gotta put a comma after this!
+type(tuple2)
+print(len(tuple2)) 
+tuple3 = tuple([2])
+type(tuple3)
+print(len(tuple3))
+tuple4 = ()
+type(tuple4)
+print(len(tuple4))
 print("type of tuple1: %s, length of tuple1: %d" % (type(tuple1), len(tuple1)) )
 
 tuple2 = (2)
@@ -191,6 +202,8 @@ for key in { "k0":4, "k8":'2', "k1":("a",5), "k5":'end' } :
 # for val in string :
 for char in 'GW Rocks' :
   print(char, type(char))
+
+#CHANGE    
   
   
 #%%

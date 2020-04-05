@@ -40,12 +40,12 @@ class Person:
 
   # gain weight
   def gain_weight_kg(self,gain) : 
-    self.weight_kg = self.weight_kg + gain 
+    self.weight_kg += gain 
     return self
 
   # gain height
   def gain_height_m(self,gain) : 
-    self.height_m = self.height_m + gain 
+    self.height_m += gain 
     return self
   
   def height_in(self) :
@@ -61,7 +61,7 @@ class Person:
 
 #%%
 # instantiate the Person object as elo, etc
-elo = Person('Lo','Edwin',1.6,60)
+elo = Person('Thomas','Johnny',1.82,81.65)
 vars(elo) # shows all attributes and their values
 # dir(elo) # shows all attributes and methods
 
@@ -111,12 +111,22 @@ class Car:
   # contructor and properties
   # __init__ is also called constructor in other propgramming langs
   # it also set the attributes in here 
+<<<<<<< HEAD
+  def __init__(self,make,model,eng,tankCurrent) :
+    #Shortcut!, CTRL D , replace, then enter
+    self.make = make
+    self.model = model
+    self.eng = eng
+    self.tankCurrent = tankCurrent
+    # self.cyl = clylinder
+=======
   # def __init__(self, make, model, eng, cylinder, color, msrp, used, transmission, year, seats, mpg, tire, airbag, sunroof): 
   def __init__(self, make, model, eng, tankCurrent): 
     self.make = make
     self.model = model
     self.eng = eng
     # self.cylinder = cylinder
+>>>>>>> master
     # self.color = color
     # self.msrp = msrp
     # self.used = used
@@ -127,11 +137,20 @@ class Car:
     # self.tire = tire
     # self.airbag = airbag
     # self.sunroof = sunroof
+<<<<<<< HEAD
+
+  def __init__(self, make, model, eng, cylinder, color, msrp, used, transmission, year, seats, mpg, tire, airbag, sunroof) :
+    , make, model, eng, cylinder, color, msrp, used, transmission, year, seats, mpg, tire, airbag, sunroof
+
+=======
     self.tankCurrent = tankCurrent
+>>>>>>> master
   
   def print_info(self) :
     print( "myself" )
     return
+<<<<<<< HEAD
+=======
 
   def fillTank(self, gain):
     self.tankCurrent += gain
@@ -139,7 +158,14 @@ class Car:
   
 
 
+>>>>>>> master
   
+  #always start with self
+  def fillTank(self,gain):
+    self.tankCurrent += gain
+    return
+  
+
   #%%
 
 
@@ -154,7 +180,7 @@ print("Directory name is : " + os.path.basename(os.getcwd()))
 # need to make sure your directory is correct for the file, and use the correct / or \ for your OS/platform
 
 #%%
-# filepath = "/Users/edwinlo/GDrive_GWU/github_elo/GWU_classes/DATS_6103_DataMining/Class04_OOP/AAPL_20140912_20190912_daily_full.csv"
+filepath = "c:/Users/johnt/Desktop/Introduction to Data Mining/GitHub/Mining_hub/DATS_6103_DataMining/Class04_OOPP/AAPL_20140912_20190912_daily_full.csv"
 appl_date = []
 appl_price_eod = []
 filepath = os.path.join( os.getcwd(), "AAPL_20140912_20190912_daily_full.csv")

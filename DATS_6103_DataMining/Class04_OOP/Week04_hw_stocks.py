@@ -3,9 +3,9 @@
 
 #%% [markdown]
 #
-# # Week04 HW
-# ## By: xxx
-# ### Date: xxxxxxx
+# # Week03 HW
+# ## By: Johnny Thomas
+# ### Date: 2/16/2020
 #
 
 #%% [markdown]
@@ -122,7 +122,11 @@ class Stock:
     # essentially the same function as compute_delta1_list. With some hindsight, or when the codes are re-factored, we can properly combine them
 
     #  ######   QUESTION 2    ######   QUESTION 2    ######   QUESTION 2    ######   QUESTION 2    ######  
-    # Fill in the codes here 
+    eod_shift1 = self.price_eod.copy() 
+    eod_shift1.pop(0) # remove the first element (shifting the day)
+    self.delta2 = list(map(lambda x,y: x-y, self.price_eod, eod_shift1))
+    print(self.name.upper(),": The latest 5 daily changes in delta2: ")
+    for i in range(0,5): print(self.delta2[i]) # checking the first five values
     # Need to find the daily changes of the daily change, and save it to the list self.delta2
     # It is the second derivative, the acceleration (or deceleration if negative) of the stock momentum.
     # Essentially the same as compute_delta1_list, just on a different list 

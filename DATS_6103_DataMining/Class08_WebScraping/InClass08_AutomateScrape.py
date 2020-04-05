@@ -41,7 +41,7 @@ testWeatherData = pd.DataFrame( columns=['zip','temperature','datetime','lat','l
 
 zips = [90210,20052,20051,20050]
 zip0 = zips[0]
-driver = webdriver.Chrome(r'/Users/edwinlo/Downloads/Work/dev/chromedriver')
+driver = webdriver.Chrome(r'C:/Users/johnt/Downloads/chromedriver.exe')
 # also need to install and locate the webdriver.Chrome location
 # for my install, I need to set 
 # driver = webdriver.Chrome(r'/Users/edwinlo/Downloads/dev/chromedriver')  # mac OS

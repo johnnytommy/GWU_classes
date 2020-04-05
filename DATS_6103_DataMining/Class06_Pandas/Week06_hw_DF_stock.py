@@ -4,8 +4,8 @@
 #%% [markdown]
 #
 # # Week06 HW
-# ## By: xxx
-# ### Date: xxxxxxx
+# ## By: Johnny Thomas
+# ### Date: 02.29.2020
 #
 
 #%% [markdown]
@@ -73,8 +73,8 @@ dfChkBasics(dfaapl)
 
 # ######  QUESTION 1      QUESTION 1      QUESTION 1   ##########
 
-# What are the variables in the df? 
-# What are the data types for these variables?
+#Variable Names and their Type
+print(dfaapl.dtypes)
 
 # ######  END of QUESTION 1    ###   END of QUESTION 1   ##########
 
@@ -141,7 +141,9 @@ class Stock:
 
     # ######  QUESTION 2      QUESTION 2      QUESTION 2   ##########
 
-    # write your codes here
+    self.data['delta1'] = 0  # initialize a new column with 0s
+    self.data['delta1'] = self.data['price'][0:-1] - self.data.price.values[1:]   # self.data['price'] is same as self.price for df
+
     
     # ######  END of QUESTION 2    ###   END of QUESTION 2   ##########
 
@@ -182,11 +184,13 @@ class Stock:
     df.price[0] = newprice
     # ######  QUESTION 4      QUESTION 4      QUESTION 4   ##########
 
-    # write your codes here
-    # set volume value
-    # set delta1 value
-    # set delta2 value
+    df.date[0]   = newdate
+    df.volume[0] = newvolume
     
+    #New deltas
+    df.delta1[0] = self.data.data.price[1] - self.data.price[0]
+    df.delta2[0] = self.data.data.delta1[1] - self.data.delta1[0]    
+
     # ######  END of QUESTION 4    ###   END of QUESTION 4   ##########
     return df  # return the dataframe with one one row of data
   
@@ -196,9 +200,11 @@ class Stock:
     """
     # ######  QUESTION 5      QUESTION 5      QUESTION 5   ##########
 
-    # change = ??
-    # percent = ??
+    n_day_ago_price = self.data.price[n]
+    today_price     = self.data.price[0]
     
+    percent = ((today_price - n_day_ago_price)/today_price) * 100
+
     # ######  END of QUESTION 5    ###   END of QUESTION 5   ##########
     print(self.symbol,": Percent change in",n,"days is {0:.2f}".format(percent))
     return percent
@@ -209,8 +215,8 @@ class Stock:
     find the highest price within the last n days 
     """
     # ######  QUESTION 6      QUESTION 6      QUESTION 6   ##########
-
-    # return ??  # you can try to use the .max() function of a pandas dataframe
+    max = self.data.price.max(n)
+    return(max)
     
     # ######  END of QUESTION 6    ###   END of QUESTION 6   ##########
 
@@ -220,8 +226,8 @@ class Stock:
     """
     # ######  QUESTION 7      QUESTION 7      QUESTION 7   ##########
 
-    # return ?? 
-    
+    min = self.data.price.min(n)
+    return(min)
     # ######  END of QUESTION 7    ###   END of QUESTION 7   ##########
 
 #%%

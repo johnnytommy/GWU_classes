@@ -264,10 +264,9 @@ except:
 
 #%%
 # Now with the index changed, what do we get from
-print(pdfib, '\n')
 print(pdfib[5:7])
 print(pdfib[5:0])
-print(pdfib[9])
+print(pdfib[9]) #gives u all of the 9's
 
 #%%
 # What if the (integer) index is not defined in our series? 
@@ -407,7 +406,7 @@ nfl = pd.read_csv(filepath, index_col=0 )
 # The code above will use the GameDate as index (which is not unique. NOT a good idea, as you'll see.)
 
 #%%
-dfChkBasics(nfl, True)
+dfChkBasics(nfl, True) #function from the very beginning
 # nfl.head()
 # nfl.tail()
 # nfl.info()

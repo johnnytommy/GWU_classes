@@ -162,7 +162,7 @@ else:
 # # So it doesn't really work, unless later versions will create a pandas series generator 
 # # instead of trying to create an ordinary pandas series
 
-# #%%
+#%%
 # # Next concept is on index  
 # # similar to primary key in Relational Database (RDB) structures  
 # # index does not have to be unique however...
