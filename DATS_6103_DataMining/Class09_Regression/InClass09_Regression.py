@@ -1,6 +1,3 @@
-# To add a new cell, type '#%%'
-# To add a new markdown cell, type '#%% [markdown]'
-
 #%%
 # Standard quick checks
 def dfChkBasics(dframe, valCnt = False): 
